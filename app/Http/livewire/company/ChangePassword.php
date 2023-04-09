@@ -35,7 +35,7 @@ class ChangePassword extends Component
         $data =['password' => Hash::make($this->password)];
 
         Company::whereId($this->company_id)->update($data);
-        session()->flash('message', "Your Profile Updated.");
+        session()->flash('message', "تم تغيير الباسورد بنجاح");
         return redirect()->route('company.profile');
     }
 

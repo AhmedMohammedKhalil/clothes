@@ -29,6 +29,15 @@ Route::middleware(['auth:admin'])->name('admin.')->prefix('admin')->group(functi
     Route::get('/settings', 'AdminController@settings')->name('settings');
     Route::get('/changePassword', 'AdminController@changePassword')->name('changePassword');
     Route::get('/logout', 'AdminController@logout')->name('logout');
+
+    Route::name('companies.')->prefix('companies')->group(function () {
+        Route::get('/', 'CompanyController@showAllCompanies')->name('allCompanies');
+        Route::get('/add', 'CompanyController@showAddCompanyForm')->name('addCompany');
+        Route::get('/show', 'CompanyController@showCompany')->name('showCompany');
+        Route::get('/edit', 'CompanyController@editCompany')->name('editCompany');
+        Route::get('/delete', 'CompanyController@deleteCompany')->name('deleteCompany');
+
+    });
 });
 
 Route::middleware(['auth:company'])->name('company.')->prefix('company')->group(function () {

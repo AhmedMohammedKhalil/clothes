@@ -35,7 +35,7 @@ class ChangePassword extends Component
         $data =['password' => Hash::make($this->password)];
 
         User::whereId($this->user_id)->update($data);
-        session()->flash('message', "Your Profile Updated.");
+        session()->flash('message', "تم تغيير الباسورد بنجاح");
         return redirect()->route('user.profile');
     }
 

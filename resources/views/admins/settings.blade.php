@@ -1,4 +1,11 @@
 @extends('admins.layout')
 @section('section')
-    <livewire:admin.settings />
+<h1 class="pt-title-subpages noborder">{{ $page_name }}</h1>
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <livewire:admin.settings />
+    </div>
+</div>
+
 @endsection

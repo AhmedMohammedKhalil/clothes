@@ -1,29 +1,26 @@
-<section class="login-area" style="min-height: calc(100vh - 167px);height:0">
-    <div class="d-table" style="">
-        <div class="d-table-cell">
-            <div class="login-form">
-                <h3>سجل الأن او <a href="{{ route('user.register') }}" class="text-decoration-underline">إنشاء حساب</a></h3>
-
-                <form wire:submit.prevent='login'>
-                    @if (session()->has('error'))
-                        <div class="alert alert-danger">
-                            {{ session('error') }}
-                        </div>
-                    @endif
-                    <div class="form-group">
-                        <input type="email" wire:model.lazy='email' id="email" class="form-control" placeholder="الإيميل">
-                        @error('email') <span class="text-danger error">{{ $message }}</span>@enderror
-
-                    </div>
-
-                    <div class="form-group">
-                        <input type="password" wire:model.lazy='password' id="password" class="form-control" placeholder="كلمة السر">
-                        @error('password') <span class="text-danger error">{{ $message }}</span>@enderror
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">سجل الأن</button>
-                </form>
-            </div>
+<form id="login-form" class="form-default form-layout-01" wire:submit.prevent='login'>
+    @if (session()->has('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
         </div>
+    @endif
+
+    <div class="form-group">
+        <label for="email">الإيميل</label>
+        <input type="email" wire:model.lazy='email' id="email" class="form-control" placeholder="الإيميل">
+        @error('email') <span class="text-danger error">{{ $message }}</span>@enderror
+
     </div>
-</section>
+
+    <div class="form-group">
+        <label for="password">كلمة السر</label>
+        <input type="password" wire:model.lazy='password' id="password" class="form-control" placeholder="كلمة السر">
+        @error('password') <span class="text-danger error">{{ $message }}</span>@enderror
+    </div>
+    <div class="row-btn">
+        <button type="submit" class="btn btn-block">سجل الأن</button>
+        <a class="btn-link btn-block btn-lg" href="{{ route('user.register') }}"><span class="pt-text">إنشاء حساب جديد</span></a>
+    </div>
+
+
+</form>

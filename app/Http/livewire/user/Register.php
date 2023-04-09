@@ -18,7 +18,6 @@ class Register extends Component
         'email'   => 'required|email|unique:users,email',
         'password' => ['required', 'string', 'min:8'],
         'confirm_password' => ['required', 'string', 'min:8','same:password'],
-        'address' => ['required', 'string', 'max:255'],
 
     ];
 
@@ -46,7 +45,7 @@ class Register extends Component
         //dd($data);
         User::create($data);
         if(Auth::guard('user')->attempt($validatedData)){
-            session()->flash('message', "You are Login successful.");
+            session()->flash('message', "تم إنشاء حسابك بنجاح");
             return redirect()->route('home');
         }
     }

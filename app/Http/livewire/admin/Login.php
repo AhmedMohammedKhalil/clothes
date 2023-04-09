@@ -30,7 +30,7 @@ class Login extends Component
         $validatedData = $this->validate();
         if(Auth::guard('admin')->attempt($validatedData)){
 
-            session()->flash('message', "تم دخولك ينجاح");
+            session()->flash('message', "تم دخولك بنجاح");
             return redirect()->route('home');
         }else{
             session()->flash('error', 'هناك خطا فى الايميل او الباسورد');

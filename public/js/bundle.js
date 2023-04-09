@@ -7547,69 +7547,7 @@ Jt = this, Kt = function () {
             external_container: !0
         })
     }(jQuery),
-    function (s) {
-        "use strict";
-        var r = {
-            entryPointInclude: s("#entrypoint-objects"),
-            classWrapperLayout: "pt-item-wrapper"
-        },
-            i = {
-                init: function (e) {
-                    return this.each(function () {
-                        var t = {
-                            objClass: s(this).attr("class").split(" ")[0],
-                            objTitle: e.titleObj,
-                            objAddClass: e.addClassObj || !1,
-                            wrapperAddClass: e.addClassWrapper || !1,
-                            createBlok: e.createBlok,
-                            objinnerEntryPoint: e.innerEntryPoint
-                        };
-                        i.insertMobile(t, e)
-                    })
-                },
-                insertMobile: function (t, e) {
-                    var i = s.extend(r, e);
-                    if (i.entryPointInclude.attr("dataDetach", "true"), t.createBlok) {
-                        if (i.entryPointInclude.find("." + t.createBlok).length || i.entryPointInclude.append("<div class='external-item " + t.createBlok + "'><div class='external-item-title'>" + i.createBlokTitle + "</div><div class='external-item-content'></div></div>"), void 0 === t.objinnerEntryPoint) var n = s("." + t.objClass).children().clone().get(0),
-                            o = i.entryPointInclude.find("." + t.createBlok + " .external-item-content");
-                        else n = s("." + t.objClass).find("." + t.objinnerEntryPoint).children().clone().get(0), o = i.entryPointInclude.find("." + t.createBlok + " .external-item-content");
-                        return o.append(n), !1
-                    }
-                    if (void 0 === t.objinnerEntryPoint) n = s("." + t.objClass).children().clone().get(0);
-                    else n = s("." + t.objClass).find("." + t.objinnerEntryPoint).children().clone().get(0);
-                    void 0 !== t.objTitle ? i.entryPointInclude.append("<div class='external-item " + t.objClass + "'><div class='external-item-title'>" + i.titleObj + "</div><div class='external-item-content'>" + n.outerHTML + "</div></div>") : i.entryPointInclude.append("<div class='external-item " + t.objClass + "'><div class='external-item-content'>" + n.outerHTML + "</div></div>"), void 0 === t.objTitle && i.entryPointInclude.find("." + t.objClass).find(".external-item-content > *:first-child").addClass(t.objAddClass), "false" != typeof t.objWrapperAddClass && r.entryPointInclude.addClass(String(e.wrapperAddClass))
-                }
-            };
-        s.fn.movingObjects = function (t) {
-            return i[t] ? i[t].apply(this, Array.prototype.slice.call(arguments, 1)) : "object" != typeof t && t ? (console.info("Action " + t + "not found this plugin"), this) : i.init.apply(this, arguments)
-        };
-        var t = s("#pt-header");
-        t.find(".single-button").movingObjects({
-            wrapperAddClass: "extra-layout"
-        }), t.hasClass("header-mobile-type-02") && (t.find(".pt-desctop-parent-account").movingObjects({
-            innerEntryPoint: "pt-dropdown-inner",
-            createBlok: "my-account",
-            createBlokTitle: "My Account"
-        }), t.find(".pt-desctop-parent-compare").movingObjects({
-            createBlok: "my-account",
-            createBlokTitle: "My Account"
-        }), t.find(".pt-desctop-parent-wishlist").movingObjects({
-            createBlok: "my-account",
-            createBlokTitle: "My Account"
-        })), t.find(".pt-desctop-parent-language").movingObjects({
-            titleObj: "Languages",
-            innerEntryPoint: "pt-dropdown-inner"
-        }), t.find(".pt-desctop-parent-currency").movingObjects({
-            titleObj: "Currency",
-            innerEntryPoint: "pt-dropdown-inner"
-        }), t.find(".pt-desctop-parent-submenu").movingObjects({
-            addClassObj: "list-icon"
-        }), t.find(".pt-desctop-parent-account").movingObjects({
-            innerEntryPoint: "pt-dropdown-inner",
-            createBlok: "my-account",
-            createBlokTitle: "My Account"
-        })
-    }(jQuery), p6 = jQuery, q6 = p6("header .pt-dropdown-obj"), r6 = p6("body"), s6 = p6("html"), q6.length && (p6(".header-popup-bg").length || r6.append('<div class="header-popup-bg"></div>'), r6.on("click", ".pt-dropdown-obj02 li a", function () {
+     p6 = jQuery, q6 = p6("header .pt-dropdown-obj"), r6 = p6("body"), s6 = p6("html"), q6.length && (p6(".header-popup-bg").length || r6.append('<div class="header-popup-bg"></div>'), r6.on("click", ".pt-dropdown-obj02 li a", function () {
         var t = p6(this).closest(".pt-dropdown-obj02");
         p6(this).closest("li").addClass("active").siblings().removeClass("active"), t.find(".pt-dropdown-toggle .pt-dropdown-value").html(p6(this).attr("data-value"))
     }), p6("header").on("click", ".js-dropdown", function (l) {
