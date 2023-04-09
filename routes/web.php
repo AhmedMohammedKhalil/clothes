@@ -38,6 +38,30 @@ Route::middleware(['auth:admin'])->name('admin.')->prefix('admin')->group(functi
         Route::get('/delete', 'CompanyController@deleteCompany')->name('deleteCompany');
 
     });
+
+    Route::name('categories.')->prefix('categories')->group(function () {
+        Route::get('/', 'CategoryController@showAllCategories')->name('allCategories');
+        Route::get('/add', 'CategoryController@showAddCategoryForm')->name('addCategory');
+        Route::get('/edit', 'CategoryController@editCategory')->name('editCategory');
+        Route::get('/delete', 'CategoryController@deleteCategory')->name('deleteCategory');
+
+    });
+
+    Route::name('materials.')->prefix('materials')->group(function () {
+        Route::get('/', 'MaterialController@showAllMaterials')->name('allMaterials');
+        Route::get('/add', 'MaterialController@showAddMaterialForm')->name('addMaterial');
+        Route::get('/edit', 'MaterialController@editMaterial')->name('editMaterial');
+        Route::get('/delete', 'MaterialController@deleteMaterial')->name('deleteMaterial');
+
+    });
+
+    Route::name('sizes.')->prefix('sizes')->group(function () {
+        Route::get('/', 'SizeController@showAllSizes')->name('allSizes');
+        Route::get('/add', 'SizeController@showAddSizeForm')->name('addSize');
+        Route::get('/edit', 'SizeController@editSize')->name('editSize');
+        Route::get('/delete', 'SizeController@deleteSize')->name('deleteSize');
+
+    });
 });
 
 Route::middleware(['auth:company'])->name('company.')->prefix('company')->group(function () {

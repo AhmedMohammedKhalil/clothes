@@ -1,27 +1,24 @@
 <?php
 
-namespace App\Http\Livewire\Admin\Companies;
+namespace App\Http\Livewire\Admin\Categories;
 
-use App\Models\Company;
+use Livewire\Component;
+use App\Models\Category;
+use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Livewire\Component;
 
-class AddCompany extends Component
+class EditCategory extends Component
 {
-    public $name,$owner, $email, $password, $confirm_password, $phone, $address,$details;
+    use WithFileUploads;
+    public $name,$image;
 
 
+    public function mount() {
+
+    }
     protected $rules = [
         'name' => ['required', 'string', 'max:50'],
-        'owner' => ['required', 'string', 'max:50'],
-        'phone' => ['required', 'string','regex:/^([0-9\s\-\+\(\)]*)$/','min:8','max:8'],
-        'email'   => 'required|email|unique:companies,email',
-        'password' => ['required', 'string', 'min:8'],
-        'confirm_password' => ['required', 'string', 'min:8','same:password'],
-        'address' => ['required', 'string', 'max:255'],
-        'details' => ['required', 'string', 'max:255'],
-
     ];
 
     protected $messages = [
@@ -40,21 +37,21 @@ class AddCompany extends Component
     ];
 
 
-    public function add(){
-        $validatedData = $this->validate();
-        $data = array_merge(
-            $validatedData,
-            ['password' => Hash::make($this->password)]
-        );
-        //dd($data);
-        Company::create($data);
-        session()->flash('message', "تم إنشاء الشركة بنجاح");
-        return redirect()->route('admin.companies.allCompanies');
+    public function updatedImage()
+    {
+            $validatedata = $this->validate(
+                ['image' => ['image','mimes:jpeg,jpg,png','max:2048']]
+            );
+    }
+
+
+    public function edit(){
+
 
     }
 
     public function render()
     {
-        return view('livewire.admin.companies.add-company');
+        return view('livewire.admin.categories.edit-category');
     }
 }

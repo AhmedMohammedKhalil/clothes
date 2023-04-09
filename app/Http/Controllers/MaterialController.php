@@ -8,59 +8,27 @@ use App\Http\Requests\UpdateMaterialRequest;
 
 class MaterialController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
+    public function showAllMaterials() {
+        $page_name = 'جميع انواع الخامات';
+        $materials = Material::all();
+        return view('admins.materials.index',compact('page_name','materials'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+
+
+    public function showAddMaterialForm() {
+        return view('admins.materials.create',['page_name' => 'إضافة خامة جديدة']);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreMaterialRequest $request)
-    {
-        //
+
+    public function editMaterial() {
+        $page_name = 'تعديل الخامة';
+        $materials = Material::all();
+        return view('admins.materials.edit',compact('page_name','materials'));
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Material $material)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Material $material)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateMaterialRequest $request, Material $material)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Material $material)
-    {
-        //
+    public function deleteMaterial() {
     }
 }

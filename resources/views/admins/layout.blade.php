@@ -20,9 +20,9 @@
                         <ul class="pt-list-row">
                             <li><a href="page-faq.html">لوحة التحكم</a></li>
                             <li><a href="{{ route('admin.companies.allCompanies') }}">إدارة الشركات</a></li>
-                            <li><a href="page-privacy-policy.html">إدارة انواع الملابس</a></li>
-                            <li><a href="page-terms.html">إدارة خامات الملابس</a></li>
-                            <li><a href="page-terms.html">إدارة مقاسات الملابس</a></li>
+                            <li><a href="{{ route('admin.categories.allCategories') }}">إدارة انواع الملابس</a></li>
+                            <li><a href="{{ route('admin.materials.allMaterials') }}">إدارة خامات الملابس</a></li>
+                            <li><a href="{{ route('admin.sizes.allSizes') }}">إدارة مقاسات الملابس</a></li>
 
                         </ul>
                     </div>

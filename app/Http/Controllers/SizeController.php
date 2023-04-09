@@ -8,59 +8,27 @@ use App\Http\Requests\UpdateSizeRequest;
 
 class SizeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
+    public function showAllSizes() {
+        $page_name = 'جميع المقاسات';
+        $sizes = Size::all();
+        return view('admins.sizes.index',compact('page_name','sizes'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+
+
+    public function showAddSizeForm() {
+        return view('admins.sizes.create',['page_name' => 'إضافة مقاس جديد']);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreSizeRequest $request)
-    {
-        //
+
+    public function editSize() {
+        $page_name = 'تعديل مقاس';
+        $sizes = Size::all();
+        return view('admins.sizes.edit',compact('page_name','sizes'));
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Size $size)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Size $size)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateSizeRequest $request, Size $size)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Size $size)
-    {
-        //
+    public function deleteSize() {
     }
 }
