@@ -2,7 +2,7 @@
 @section('section')
 <h1 class="pt-title-subpages noborder">{{ $page_name }}</h1>
 <div class="row justify-content-center">
-<a href="{{ route('admin.categories.addCategory') }}" class="btn mb-3">
+    <a href="{{ route('admin.categories.addCategory') }}" class="btn mb-3">
     <div class="pt-icon">
         <svg>
             <use xlink:href="#icon_add"></use>
@@ -10,18 +10,21 @@
     </div>
     <span class="pt-text">إضافة نوع ملابس جديد</span>
 </a>
+</div>
+<div class="row justify-content-center">
+
 <div class="pt-shopcart-page">
     @foreach ($categories as $category)
     <div class="pt-item">
-        {{-- <div class="pt-item-img">
+        <div class="pt-item-img">
             <a href="#">
                 @if($category->image != null)
                     <img style="width:60%;height:200px" src="{{ asset("images/categories/".$category->id."/".$category->image) }}" alt="صورة البروفايل">
                 @else
-                    <img style="width:60%;height:200px" src="{{ asset('images/categories/about-img-02.jpg') }}" alt="">
+                    <img style="width:60%;height:200px" src="{{ asset('images/companies/about-img-02.jpg') }}" alt="">
                 @endif
             </a>
-        </div> --}}
+        </div>  
         <div class="pt-item-description text-center">
             <div class="pt-col">
                 <h6 class="pt-title"><a href="#">{{ $category->name }}</a></h6>

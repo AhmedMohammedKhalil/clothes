@@ -2,7 +2,7 @@
 @section('section')
 <h1 class="pt-title-subpages noborder">{{ $page_name }}</h1>
 <div class="row justify-content-center">
-<a href="{{ route('admin.materials.addMaterial') }}" class="btn mb-3">
+    <a href="{{ route('admin.materials.addMaterial') }}" class="btn mb-3">
     <div class="pt-icon">
         <svg>
             <use xlink:href="#icon_add"></use>
@@ -10,6 +10,9 @@
     </div>
     <span class="pt-text">إضافة خامة جديدة</span>
 </a>
+</div>
+<div class="row justify-content-center">
+
 <div class="pt-shopcart-page">
     @foreach ($materials as $material)
     <div class="pt-item">

@@ -10,6 +10,9 @@
     </div>
     <span class="pt-text">إضافة مقاس جديد</span>
 </a>
+</div>
+<div class="row justify-content-center">
+
 <div class="pt-shopcart-page">
     @foreach ($sizes as $size)
     <div class="pt-item">
