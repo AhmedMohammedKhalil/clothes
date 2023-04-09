@@ -24,5 +24,8 @@ class Company extends Authenticatable
         'password',
     ];
 
+    public function products() {
+        return $this->hasMany(Product::class,'company_id');
+    }
 
 }
