@@ -42,6 +42,12 @@ return new class extends Migration
                 ->references('id')->on('materials')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
+
+            $table->integer('size_id')->unsigned();
+            $table->foreign('size_id')
+                ->references('id')->on('sizes')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

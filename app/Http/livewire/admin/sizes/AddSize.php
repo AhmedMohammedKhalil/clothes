@@ -35,7 +35,9 @@ class AddSize extends Component
 
 
     public function add(){
-
+        $validatedData = $this->validate();
+        Size::create($validatedData);
+        return redirect()->route('admin.sizes.allSizes');
     }
 
     public function render()

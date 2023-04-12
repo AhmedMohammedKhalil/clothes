@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Size;
 use App\Http\Requests\StoreSizeRequest;
 use App\Http\Requests\UpdateSizeRequest;
+use Illuminate\Http\Request;
 
 class SizeController extends Controller
 {
@@ -21,14 +22,16 @@ class SizeController extends Controller
     }
 
 
-    public function editSize() {
+    public function editSize(Request $r) {
         $page_name = 'تعديل مقاس';
-        $sizes = Size::all();
-        return view('admins.sizes.edit',compact('page_name','sizes'));
+        $size = Size::whereId($r->id)->first();
+        return view('admins.sizes.edit',compact('page_name','size'));
     }
 
 
 
-    public function deleteSize() {
+    public function deleteSize(Request $r) {
+        Size::destroy($r->id);
+        return redirect()->route('admin.sizes.allSizes');
     }
 }

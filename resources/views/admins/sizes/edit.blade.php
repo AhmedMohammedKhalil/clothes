@@ -4,7 +4,7 @@
 
 <div class="row justify-content-center">
     <div class="col-md-6">
-        <livewire:admin.sizes.edit-size>
+        <livewire:admin.sizes.edit-size  :size_id='$size->id'>
     </div>
 </div>
 

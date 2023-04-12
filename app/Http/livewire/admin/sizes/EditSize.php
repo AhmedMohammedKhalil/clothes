@@ -9,11 +9,12 @@ use Illuminate\Support\Facades\Hash;
 
 class EditSize extends Component
 {
-    public $name;
+    public $name ,$size;
 
 
-    public function mount() {
-
+    public function mount($size_id) {
+        $this->size = Size::whereId($size_id)->first();
+        $this->name = $this->size->name;
     }
 
 
@@ -40,7 +41,9 @@ class EditSize extends Component
 
 
     public function edit(){
-
+        $validatedData = $this->validate();
+        Size::whereId($this->size->id)->update($validatedData);
+        return redirect()->route('admin.sizes.allSizes');
     }
 
     public function render()

@@ -24,6 +24,7 @@ class ProductSeeder extends Seeder
             'gender_id' => '2',
             'company_id' => '1',
             'material_id' => '1',
+            'size_id' => '2',
         ]);
 
         DB::table('products')->insert([
@@ -36,6 +37,7 @@ class ProductSeeder extends Seeder
             'gender_id' => '2',
             'company_id' => '1',
             'material_id' => '6',
+            'size_id' => '2',
         ]);
 
         DB::table('products')->insert([
@@ -48,6 +50,7 @@ class ProductSeeder extends Seeder
             'gender_id' => '1',
             'company_id' => '2',
             'material_id' => '2',
+            'size_id' => '2',
         ]);
         DB::table('products')->insert([
             'name' => 'بنطلون كارجو  ',
@@ -59,6 +62,7 @@ class ProductSeeder extends Seeder
             'gender_id' => '1',
             'company_id' => '2',
             'material_id' => '1',
+            'size_id' => '2',
         ]);
         DB::table('products')->insert([
             'name' => 'بنطلون رياضي',
@@ -70,6 +74,7 @@ class ProductSeeder extends Seeder
             'gender_id' => '1',
             'company_id' => '3',
             'material_id' => '1',
+            'size_id' => '1',
         ]);
         DB::table('products')->insert([
             'name' => 'سويت شيرت ',
@@ -81,6 +86,7 @@ class ProductSeeder extends Seeder
             'gender_id' => '1',
             'company_id' => '3',
             'material_id' => '5',
+            'size_id' => '1',
         ]);
         DB::table('products')->insert([
             'name' => 'شورت',
@@ -92,6 +98,7 @@ class ProductSeeder extends Seeder
             'gender_id' => '1',
             'company_id' => '4',
             'material_id' => '1',
+            'size_id' => '3',
         ]);
         DB::table('products')->insert([
             'name' => 'هودي رياضي',
@@ -103,6 +110,7 @@ class ProductSeeder extends Seeder
             'gender_id' => '1',
             'company_id' => '4',
             'material_id' => '6',
+            'size_id' => '3',
         ]);
         DB::table('products')->insert([
             'name' => 'تيشيرت',
@@ -114,6 +122,7 @@ class ProductSeeder extends Seeder
             'gender_id' => '1',
             'company_id' => '5',
             'material_id' => '3',
+            'size_id' => '4',
         ]);
         DB::table('products')->insert([
             'name' => 'تيشيرت ملون',
@@ -125,6 +134,7 @@ class ProductSeeder extends Seeder
             'gender_id' => '1',
             'company_id' => '5',
             'material_id' => '3',
+            'size_id' => '4',
         ]);
     }
 }
