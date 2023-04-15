@@ -54,7 +54,6 @@ Route::middleware(['auth:admin'])->name('admin.')->prefix('admin')->group(functi
         Route::get('/add', 'MaterialController@showAddMaterialForm')->name('addMaterial');
         Route::get('/edit', 'MaterialController@editMaterial')->name('editMaterial');
         Route::get('/delete', 'MaterialController@deleteMaterial')->name('deleteMaterial');
-
     });
 
     Route::name('sizes.')->prefix('sizes')->group(function () {
@@ -75,6 +74,15 @@ Route::middleware(['auth:company'])->name('company.')->prefix('company')->group(
     Route::get('/settings', 'CompanyController@settings')->name('settings');
     Route::get('/changePassword', 'CompanyController@changePassword')->name('changePassword');
     Route::get('/logout', 'CompanyController@logout')->name('logout');
+
+    Route::name('products.')->prefix('products')->group(function () {
+        Route::get('/', 'ProductController@showAllproducts')->name('allproducts');
+        Route::get('/add', 'ProductController@showAddProductForm')->name('addProduct');
+        Route::get('/edit', 'ProductController@editProduct')->name('editProduct');
+        Route::get('/show', 'ProductController@showProduct')->name('showProduct');
+        Route::get('/delete', 'ProductController@deleteProduct')->name('deleteProduct');
+
+    });
 });
 
 

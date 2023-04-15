@@ -15,12 +15,6 @@ class CompanyController extends Controller
         return view('companies.login');
     }
 
-    public function dashboard() {
-        //change
-        $page_name = 'الإحصائيات';
-        $user_count = User::all()->count();
-        return view('admins.dashboard',compact('page_name','user_count'));
-    }
 
 
     public function showAllCompanies() {
@@ -45,8 +39,6 @@ class CompanyController extends Controller
 
     public function showCompany(Request $r) {
         $company = Company::whereId($r->id)->first();
-        // $company->address = nl2br($company->address);
-        // $company->details = nl2br($company->details);
         $page_name = 'بيانات شركة '.$company->name;
         return view('admins.companies.show',compact('page_name','company'));
     }

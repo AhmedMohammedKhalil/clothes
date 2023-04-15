@@ -14167,9 +14167,9 @@ footer .pt-footer-custom [class^=col-]>.pt-payment-list:nth-child(1) {
 }
 
 .pt-product .pt-description .pt-add-info li {
-    font-size: 13px;
-    line-height: 19px;
-    color: #777
+    font-size: 15px;
+        line-height: 19px;
+        color: black !important;
 }
 
 .pt-product .pt-description .pt-add-info li a {

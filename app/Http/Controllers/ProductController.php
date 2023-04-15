@@ -2,65 +2,37 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
 use App\Models\Product;
-use App\Http\Requests\StoreProductRequest;
-use App\Http\Requests\UpdateProductRequest;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
+    public function showAllProducts() {
+        $page_name = 'جميع الملابس';
+        $products = Product::where('company_id',auth('company')->user()->id)->get();
+        //dd($products);
+        return view('companies.products.index',compact('page_name','products'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+
+
+    public function showAddProductForm() {
+        return view('companies.products.create',['page_name' => 'إضافة ملابس جديده']);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreProductRequest $request)
-    {
-        //
+
+    public function editProduct(Request $r) {
+        $page_name = 'تعديل الملابس';
+        $product_id = $r->id;
+        return view('companies.products.edit',compact('page_name','product_id'));
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Product $product)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Product $product)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateProductRequest $request, Product $product)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Product $product)
-    {
-        //
+    public function deleteProduct(Request $r) {
+        Image::where('product_id',$r->id)->delete();
+        Product::whereId($r->id)->delete();
+        return redirect()->route('company.products.allproducts');
     }
 }

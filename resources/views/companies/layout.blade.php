@@ -18,8 +18,7 @@
                     <h3 class="pt-aside-title">قائمتى</h3>
                     <div class="pt-aside-content">
                         <ul class="pt-list-row">
-                            <li><a href="page-faq.html">لوحة التحكم</a></li>
-                            <li><a href="page-privacy-policy.html">إدارة المنتجات</a></li>
+                            <li><a href="{{ route('company.products.allproducts') }}">إدارة المنتجات</a></li>
                             <li><a href="page-terms.html">جميع الأوردات</a></li>
                         </ul>
                     </div>
