@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="{{ asset('css/rtl.css')}}">
     @livewireStyles
     @stack('css')
+
 </head>
 
 <body>
@@ -239,11 +240,6 @@
                                             @endauth
                                             @auth('company')
                                             <ul>
-                                                <li>
-                                                    <a href="{{ route('company.dashboard') }}">
-                                                        <span class="pt-text">لوحة التحكم</span>
-                                                    </a>
-                                                </li>
                                                 <li>
                                                     <a href="{{ route('company.profile') }}">
                                                         <span class="pt-text">البروفايل</span>

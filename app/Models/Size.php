@@ -9,10 +9,9 @@ class Size extends Model
 {
     use HasFactory;
 
-    protected $guard = 'sizes';
 
     protected $fillable = [
-        'name',
+        'name'
     ];
 
     public function products() {
