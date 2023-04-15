@@ -17,6 +17,7 @@ class ProductSeeder extends Seeder
         DB::table('products')->insert([
             'name' => 'بلوزة قطن',
             'available' => '1',
+            'color' => 'white',
             'price' => '349',
             'offer' => '300',
             'details' => ' بلوزة من القطن بأكمام طويلة',
@@ -30,6 +31,7 @@ class ProductSeeder extends Seeder
         DB::table('products')->insert([
             'name' => 'فستان دينغري  ',
             'available' => '1',
+            'color' => 'white',
             'price' => '950',
             'offer' => '870',
             'details' => 'فستان دينغري من الكوردوري',
@@ -43,6 +45,7 @@ class ProductSeeder extends Seeder
         DB::table('products')->insert([
             'name' => 'قميص أوكسفورد بقصة عادية',
             'available' => '1',
+            'color' => 'white',
             'price' => '250',
             'offer' => '220',
             'details' => 'قميص أوكسفورد بقصة عادية',
@@ -55,6 +58,7 @@ class ProductSeeder extends Seeder
         DB::table('products')->insert([
             'name' => 'بنطلون كارجو  ',
             'available' => '1',
+            'color' => 'white',
             'price' => '333',
             'offer' => '320',
             'details' => 'بنطلون كارجو بقصة مريحة',
@@ -67,6 +71,7 @@ class ProductSeeder extends Seeder
         DB::table('products')->insert([
             'name' => 'بنطلون رياضي',
             'available' => '1',
+            'color' => 'white',
             'price' => '333',
             'offer' => '320',
             'details' => 'بنطلون بقصة مريحة',
@@ -79,6 +84,7 @@ class ProductSeeder extends Seeder
         DB::table('products')->insert([
             'name' => 'سويت شيرت ',
             'available' => '1',
+            'color' => 'white',
             'price' => '200',
             'offer' => '170',
             'details' => 'سويت شيرت مرنة بقصّة عادية',
@@ -91,6 +97,7 @@ class ProductSeeder extends Seeder
         DB::table('products')->insert([
             'name' => 'شورت',
             'available' => '1',
+            'color' => 'white',
             'price' => '300',
             'offer' => '260',
             'details' => 'شورت رياضي للركض',
@@ -103,6 +110,7 @@ class ProductSeeder extends Seeder
         DB::table('products')->insert([
             'name' => 'هودي رياضي',
             'available' => '1',
+            'color' => 'white',
             'price' => '600',
             'offer' => '500',
             'details' => 'هودي رياضي منسوج من قماش دراي موف',
@@ -115,6 +123,7 @@ class ProductSeeder extends Seeder
         DB::table('products')->insert([
             'name' => 'تيشيرت',
             'available' => '1',
+            'color' => 'white',
             'price' => '120',
             'offer' => '110',
             'details' => 'تي-شيرت بقصّة عادية مع جيب',
@@ -127,6 +136,7 @@ class ProductSeeder extends Seeder
         DB::table('products')->insert([
             'name' => 'تيشيرت ملون',
             'available' => '1',
+            'color' => 'white',
             'price' => '620',
             'offer' => '580',
             'details' => 'تي-شيرت مزين بطبعة وبقصة مريحة',

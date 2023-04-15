@@ -11,11 +11,12 @@ use Illuminate\Support\Facades\Hash;
 class EditMaterial extends Component
 {
     use WithFileUploads;
-    public $name,$image;
+    public $name,$material;
 
 
-    public function mount() {
-
+    public function mount($material_id) {
+        $this->material = Material::whereId($material_id)->first();
+        $this->name = $this->material->name;
     }
 
     protected $rules = [
@@ -38,16 +39,12 @@ class EditMaterial extends Component
     ];
 
 
-    public function updatedImage()
-    {
-            $validatedata = $this->validate(
-                ['image' => ['image','mimes:jpeg,jpg,png','max:2048']]
-            );
-    }
 
 
     public function edit(){
-
+        $validatedData = $this->validate();
+        Material::whereId($this->material->id)->update($validatedData);
+        return redirect()->route('admin.materials.allMaterials');
     }
 
     public function render()

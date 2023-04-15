@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Company;
+use App\Models\Material;
+use App\Models\Order;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +21,13 @@ class AdminController extends Controller
 
         $page_name = 'الإحصائيات';
         $user_count = User::all()->count();
-        return view('admins.dashboard',compact('page_name','user_count'));
+        $company_count = Company::all()->count();
+        $category_count = Category::all()->count();
+        $product_count = Product::all()->count();
+        $material_count = Material::all()->count();
+        $order_count = Order::all()->count();
+
+        return view('admins.dashboard',compact('page_name','user_count','company_count','category_count','product_count','material_count','order_count'));
     }
 
     public function profile() {

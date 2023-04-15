@@ -2,27 +2,32 @@
 
 namespace App\Http\Livewire\Admin\Companies;
 
+use Livewire\Component;
 use App\Models\Company;
+use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Livewire\Component;
-use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\File;
 
 
-class AddCompany extends Component
+class EditCompany extends Component
 {
     use WithFileUploads;
-    public $name,$owner, $email, $password, $confirm_password, $phone, $address,$details,$image;
+    public $name="",$image,$company,$owner="", $email="", $password="", $confirm_password="", $phone="", $address="",$details="";
 
-
+    public function mount($company_id) {
+        $this->company = Company::find($company_id);
+        $this->name = $this->company->name;
+        $this->owner = $this->company->owner;
+        $this->email = $this->company->email;
+        $this->phone = $this->company->phone;
+        $this->address = $this->company->address;
+        $this->details = $this->company->details;
+    }
     protected $rules = [
         'name' => ['required', 'string', 'max:50'],
         'owner' => ['required', 'string', 'max:50'],
         'phone' => ['required', 'string','regex:/^([0-9\s\-\+\(\)]*)$/','min:8','max:8'],
-        'email'   => 'required|email|unique:companies,email',
-        'password' => ['required', 'string', 'min:8'],
-        'confirm_password' => ['required', 'string', 'min:8','same:password'],
         'address' => ['required', 'string', 'max:255'],
         'details' => ['required', 'string', 'max:255'],
 
@@ -50,34 +55,50 @@ class AddCompany extends Component
             );
     }
 
-    public function add(){
-        $validatedData = $this->validate();
-        $data = array_merge(
-            $validatedData,
-            ['password' => Hash::make($this->password)]
-        );
-        $imagename = "";
-        if($this->image) {
-            $imagename = $this->image->getClientOriginalName();
-            $data = array_merge($data,['image' => $imagename]);
+    public function updatedPassword()
+    {
+            $validatedata = $this->validate(
+                [ 
+                    'password' => ['string', 'min:8'],
+                    'confirm_password' => ['string', 'min:8','same:password']
+                ]
+            );
+    }
+
+    public function edit(){
+        $validatedData = $this->validate(
+            array_merge(
+                $this->rules,
+                [ 'email'   => ['required','email',"unique:companies,email,".$this->company->id],
+        ]));
+        if($this->password){
+            $this->updatedPassword();
+            $validatedData = array_merge(
+                $validatedData,
+                ['password' => Hash::make($this->password)]
+            );
         }
-        $company = Company::create($data);
-        if($this->image) {
-            $dir = public_path('images/companies/'.$company->id);
-            if(file_exists($dir))
+        if (!$this->image)
+            Company::whereId($this->company->id)->update($validatedData);
+        if ($this->image) {
+            $this->updatedImage();
+            $imagename = $this->image->getClientOriginalName();
+            Company::whereId($this->company->id)->update(array_merge($validatedData, ['image' => $imagename]));
+            $dir = public_path('images/companies/' . $this->company->id);
+            if (file_exists($dir))
                 File::deleteDirectories($dir);
             else
                 mkdir($dir);
-            $this->image->storeAs('images/companies/'.$company->id,$imagename);
+            $this->image->storeAs('images/companies/' . $this->company->id, $imagename);
             File::deleteDirectory(public_path('/livewire-tmp'));
         }
-        session()->flash('message', "تم إنشاء الشركة بنجاح");
+        session()->flash('message', "تم إتمام العملية بنجاح");
         return redirect()->route('admin.companies.allCompanies');
 
     }
 
     public function render()
     {
-        return view('livewire.admin.companies.add-company');
+        return view('livewire.admin.companies.edit-company');
     }
 }

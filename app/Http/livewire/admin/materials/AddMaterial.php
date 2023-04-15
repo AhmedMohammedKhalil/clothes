@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Hash;
 class AddMaterial extends Component
 {
     use WithFileUploads;
-    public $name,$image;
+    public $name;
 
 
     protected $rules = [
@@ -43,7 +43,9 @@ class AddMaterial extends Component
 
 
     public function add(){
-
+        $validatedData = $this->validate();
+        Material::create($validatedData);
+        return redirect()->route('admin.materials.allMaterials');
     }
 
     public function render()

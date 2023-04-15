@@ -7,15 +7,18 @@ use App\Models\Category;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\File;
+
 
 class EditCategory extends Component
 {
     use WithFileUploads;
-    public $name,$image;
+    public $name,$image,$cat;
 
 
-    public function mount() {
-
+    public function mount($category_id) {
+        $this->cat = Category::find($category_id);
+        $this->name = $this->cat->name;
     }
     protected $rules = [
         'name' => ['required', 'string', 'max:50'],
@@ -46,7 +49,23 @@ class EditCategory extends Component
 
 
     public function edit(){
-
+        $validatedata = $this->validate();
+        if (!$this->image)
+            Category::whereId($this->cat->id)->update($validatedata);
+        if ($this->image) {
+            $this->updatedImage();
+            $imagename = $this->image->getClientOriginalName();
+            Category::whereId($this->cat->id)->update(array_merge($validatedata, ['image' => $imagename]));
+            $dir = public_path('images/categories/' . $this->cat->id);
+            if (file_exists($dir))
+                File::deleteDirectories($dir);
+            else
+                mkdir($dir);
+            $this->image->storeAs('images/categories/' . $this->cat->id, $imagename);
+            File::deleteDirectory(public_path('/livewire-tmp'));
+        }
+        session()->flash('message', "تم إتمام العملية بنجاح");
+        return redirect()->route('admin.categories.allCategories');
 
     }
 

@@ -6,6 +6,8 @@ use App\Models\Company;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+
 
 class CompanyController extends Controller
 {
@@ -34,10 +36,10 @@ class CompanyController extends Controller
     }
 
 
-    public function editCompany() {
+    public function editCompany(Request $r) {
         $page_name = 'تعديل بيانات الشركة';
-        $companies = Company::all();
-        return view('admins.companies.edit',compact('page_name','companies'));
+        $company = Company::whereId($r->id)->first();
+        return view('admins.companies.edit',compact('page_name','company'));
     }
 
 
@@ -50,7 +52,10 @@ class CompanyController extends Controller
     }
 
 
-    public function deleteCompany() {
+    public function deleteCompany(Request $r) {
+        Company::destroy($r->id);
+        File::deleteDirectory(public_path('images/companies/'.$r->id));
+        return redirect()->route('admin.companies.allCompanies');
     }
 
 

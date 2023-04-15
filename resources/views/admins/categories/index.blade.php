@@ -37,11 +37,13 @@
                                 <use xlink:href="#icon-edit"></use>
                             </svg>
                         </a>
+                        @if (count($category->products) == 0)
                         <a data-tooltip="حذف" href="{{ route('admin.categories.deleteCategory',['id' => $category->id]) }}" class="pt-btn js-remove-item">
                             <svg width="24" height="24" viewBox="0 0 24 24">
                                 <use xlink:href="#icon-remove"></use>
                             </svg>
                         </a>
+                        @endif
                     </div>
                 </div>
             </div>

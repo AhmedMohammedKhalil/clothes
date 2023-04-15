@@ -4,7 +4,7 @@
 
 <div class="row justify-content-center">
     <div class="col-md-6">
-        <livewire:admin.materials.edit-material>
+        <livewire:admin.materials.edit-material :material_id='$material->id'>
     </div>
 </div>
 

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Material;
-use App\Http\Requests\StoreMaterialRequest;
-use App\Http\Requests\UpdateMaterialRequest;
+use Illuminate\Http\Request;
+
 
 class MaterialController extends Controller
 {
@@ -21,14 +21,16 @@ class MaterialController extends Controller
     }
 
 
-    public function editMaterial() {
+    public function editMaterial(Request $r) {
         $page_name = 'تعديل الخامة';
-        $materials = Material::all();
-        return view('admins.materials.edit',compact('page_name','materials'));
+        $material = Material::whereId($r->id)->first();
+        return view('admins.materials.edit',compact('page_name','material'));
     }
 
 
 
-    public function deleteMaterial() {
+    public function deleteMaterial(Request $r) {
+        Material::destroy($r->id);
+        return redirect()->route('admin.materials.allMaterials');
     }
 }

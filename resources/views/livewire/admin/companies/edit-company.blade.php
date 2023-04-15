@@ -55,6 +55,11 @@
         <textarea name="details" class="form-control"  wire:model.lazy='details' id="details" rows="6" placeholder="تفاصيل عن الشركة"></textarea>
         @error('details') <span class="text-danger error">{{ $message }}</span>@enderror
     </div>
+    <div class="form-group">
+        <label for="image">الصورة</label>
+        <input type="file" wire:model='image' id="image" class="form-control" placeholder="">
+        @error('image') <span class="text-danger error">{{ $message }}</span>@enderror
+    </div>
 
 
 

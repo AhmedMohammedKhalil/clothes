@@ -15,6 +15,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('name',100);
             $table->string('available')->default(1);
+            $table->string('color');
             $table->double('price');
             $table->double('offer');
             $table->text('details');

@@ -37,7 +37,7 @@
                 <li><a href="{{ route('home') }}">الرئيسية</a></li>
                 <li><a href="index-rtl.html">ملابس الرجال</a></li>
                 <li><a href="index-rtl.html">ملابس النساء</a></li>
-                <li><a href="index-rtl.html">من نحن</a></li>
+                <li><a href="{{ route('aboutUs') }}">من نحن</a></li>
             </ul>
             <div class="mm-navbtn-names">
                 <div class="mm-closebtn">غلق</div>
@@ -102,7 +102,7 @@
                                             <a href="index-rtl.html"><span>ملابس النساء</span></a>
                                         </li>
                                         <li class="dropdown">
-                                            <a href="index-rtl.html"><span>من نحن</span></a>
+                                            <a href="{{ route('aboutUs') }}"><span>من نحن</span></a>
                                         </li>
 
                                     </ul>
@@ -378,7 +378,8 @@
         window.jQuery || document.write('<script src="external/jquery/jquery.min.js"><\/script>')
     </script>
     <script async src="{{ asset('js/bundle.js') }}"></script>
-
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <script src="{{ asset('js/jquery.counterup.min.js') }}"></script>
 
     @livewireScripts
     @stack('js')

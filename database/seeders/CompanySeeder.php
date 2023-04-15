@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+
 
 class CompanySeeder extends Seeder
 {
@@ -17,7 +19,7 @@ class CompanySeeder extends Seeder
             'name' => 'اوف وايت كويت',
             'owner' => 'آسيل ناصف',
             'email' => 'offwhite@clothes.com',
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'password' =>Hash::make('123456789'),
             'phone' => '32165487',
             'address' => 'الكويت ,الفروانية جمعية الرحاب',
             'details' => 'متجر ملابس حريمي',
@@ -26,7 +28,7 @@ class CompanySeeder extends Seeder
             'name' => 'ناس بوتيك',
             'owner' => 'بتول محسن',
             'email' => 'nass@clothes.com',
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'password' =>Hash::make('123456789'),
             'phone' => '32100087',
             'address' => 'الكويت , افينوس مول',
             'details' => 'متجر ملابس حريمي',
@@ -35,7 +37,7 @@ class CompanySeeder extends Seeder
             'name' => 'بربري ستور',
             'owner' => 'عدي  سامر',
             'email' => 'barbary@clothes.com',
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'password' =>Hash::make('123456789'),
             'phone' => '23610008',
             'address' => 'منطقة الخيران',
             'details' => 'متجر ملابس رجالي',
@@ -44,7 +46,7 @@ class CompanySeeder extends Seeder
             'name' => 'ماكس اند كو',
             'owner' => 'طلال عابد',
             'email' => 'maxandcoo@clothes.com',
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'password' =>Hash::make('123456789'),
             'phone' => '21615648',
             'address' => 'نطقة حولي',
             'details' => 'متجر ملابس رجالي',
@@ -53,7 +55,7 @@ class CompanySeeder extends Seeder
             'name' => 'اتش اند اس',
             'owner' => 'راشد تمام',
             'email' => 'hands@clothes.com',
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'password' =>Hash::make('123456789'),
             'phone' => '35615558',
             'address' => 'منطقة جنوب السرة',
             'details' => 'متجر ملابس رجالي',

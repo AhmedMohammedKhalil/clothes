@@ -7,6 +7,8 @@ use App\Models\Category;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\File;
+
 
 class AddCategory extends Component
 {
@@ -43,7 +45,24 @@ class AddCategory extends Component
 
 
     public function add(){
-
+        $data = $this->validate();
+        $imagename = "";
+        if($this->image) {
+            $imagename = $this->image->getClientOriginalName();
+            $data = array_merge($data,['image' => $imagename]);
+        }
+        $category = Category::create($data);
+        if($this->image) {
+            $dir = public_path('images/categories/'.$category->id);
+            if(file_exists($dir))
+                File::deleteDirectories($dir);
+            else
+                mkdir($dir);
+            $this->image->storeAs('images/categories/'.$category->id,$imagename);
+            File::deleteDirectory(public_path('/livewire-tmp'));
+        }
+        session()->flash('message', "تم إضافة النوع بنجاح");
+        return redirect()->route('admin.categories.allCategories');
     }
 
     public function render()

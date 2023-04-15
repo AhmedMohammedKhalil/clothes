@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/about', 'HomeController@aboutUs')->name('aboutUs');
+
 Route::middleware(['guest:admin', 'guest:company', 'guest:user'])->group(function () {
     Route::get('/admin/login', 'AdminController@showLoginForm')->name('admin.login');
     Route::get('/company/login', 'CompanyController@showLoginForm')->name('company.login');
@@ -61,6 +63,9 @@ Route::middleware(['auth:admin'])->name('admin.')->prefix('admin')->group(functi
         Route::get('/edit', 'SizeController@editSize')->name('editSize');
         Route::get('/delete', 'SizeController@deleteSize')->name('deleteSize');
 
+    });
+    Route::name('orders.')->prefix('orders')->group(function () {
+        Route::get('/', 'OrderController@showAllOrders')->name('allOrders');
     });
 });
 

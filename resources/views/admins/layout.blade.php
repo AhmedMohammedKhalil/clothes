@@ -18,12 +18,12 @@
                     <h3 class="pt-aside-title">قائمتى</h3>
                     <div class="pt-aside-content">
                         <ul class="pt-list-row">
-                            <li><a href="page-faq.html">لوحة التحكم</a></li>
+                            <li><a href="{{ route('admin.dashboard') }}">لوحة التحكم</a></li>
                             <li><a href="{{ route('admin.companies.allCompanies') }}">إدارة الشركات</a></li>
                             <li><a href="{{ route('admin.categories.allCategories') }}">إدارة انواع الملابس</a></li>
                             <li><a href="{{ route('admin.materials.allMaterials') }}">إدارة خامات الملابس</a></li>
                             <li><a href="{{ route('admin.sizes.allSizes') }}">إدارة مقاسات الملابس</a></li>
-
+                            <li><a href="{{ route('admin.orders.allOrders') }}">جميع الطلبات</a></li>
                         </ul>
                     </div>
                 </div>

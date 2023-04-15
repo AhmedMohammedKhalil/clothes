@@ -68,7 +68,22 @@
     <div class="container">
         <div class="pt-layout-promo-card-02">
             <div class="row">
+            @foreach ($categories as $c)
                 <div class="col-md-6">
+                    <a href="#" class="pt-promo-card-02">
+                        <div class="image-box">
+                            <img style="height:570px" src="{{ asset("images/categories/".$c->id."/".$c->image) }}" alt="">
+                        </div>
+                        <div class="pt-description">
+                            <div class="pt-title">
+                            {{$c->name}}
+                            </div>
+                            <div class="btn btn-border">تسوق الآن</div>
+                        </div>
+                    </a>
+                </div>
+            @endforeach
+                {{-- <div class="col-md-6">
                     <a href="#" class="pt-promo-card-02">
                         <div class="image-box">
                             <img style="height:570px" src="{{ asset('images/slides/slide-03.jpg')}}" alt="">
@@ -93,7 +108,7 @@
                             <div class="btn btn-border">تسوقى الآن</div>
                         </div>
                     </a>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

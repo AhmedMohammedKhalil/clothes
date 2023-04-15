@@ -4,7 +4,7 @@
 
 <div class="row justify-content-center">
     <div class="col-md-6">
-        <livewire:admin.categories.edit-category>
+        <livewire:admin.categories.edit-category :category_id='$category->id'>
     </div>
 </div>
 
