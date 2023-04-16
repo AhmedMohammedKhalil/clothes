@@ -91,4 +91,10 @@ Route::middleware(['auth:user'])->name('user.')->prefix('user')->group(function 
     Route::get('/settings', 'UserController@settings')->name('settings');
     Route::get('/changePassword', 'UserController@changePassword')->name('changePassword');
     Route::get('/logout', 'UserController@logout')->name('logout');
+    Route::get('/buy','UserController@buyProduct')->name('buy');
+    Route::get('/orders','UserController@showOrders')->name('orders');
+    Route::get('/order/del','UserController@delOrder')->name('order.del');
+    Route::get('/cart','UserController@showCart')->name('cart');
+    Route::get('/carts','UserController@showCarts')->name('carts');
+    Route::get('/cart/checkout','UserController@checkout')->name('checkout');
 });

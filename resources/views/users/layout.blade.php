@@ -18,8 +18,8 @@
                     <h3 class="pt-aside-title">قائمتى</h3>
                     <div class="pt-aside-content">
                         <ul class="pt-list-row">
-                            <li><a href="page-privacy-policy.html">عربة التسوق</a></li>
-                            <li><a href="page-privacy-policy.html">جميع أوردراتى</a></li>
+                            <li><a href="{{ route('user.cart') }}">عربة التسوق</a></li>
+                            <li><a href="{{ route('user.carts') }}">جميع أوردراتى</a></li>
                         </ul>
                     </div>
                 </div>

@@ -35,4 +35,18 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
     ];
+
+    public function carts() {
+        return $this->hasMany(Cart::class,'user_id');
+    }
+
+
+    public function scopeOpenCart() {
+        return $this->carts()->where('status','open')->first();
+    }
+
+
+    public function scopeCloseCarts() {
+        return $this->carts()->where('status','close')->get();
+    }
 }

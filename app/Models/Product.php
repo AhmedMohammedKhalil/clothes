@@ -27,6 +27,10 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function company() {
+        return $this->belongsTo(Company::class);
+    }
+
     public function gender() {
         return $this->belongsTo(Gender::class);
     }
@@ -46,5 +50,19 @@ class Product extends Model
 
     public function images() {
         return $this->hasMany(Image::class,'product_id');
+    }
+    public function carts() {
+        return $this->belongsToMany(Cart::class,'orders','product_id')
+                ->withPivot('qty')
+                ->withTimestamps();
+    }
+
+    public function scopeProductQty() {
+        $carts = $this->carts()->where('status','open')->get();
+        $total = 0 ;
+        foreach($carts as $cart) {
+            $total += $cart->pivot->qty;
+        }
+        return $total;
     }
 }

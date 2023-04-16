@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\User;
 
 use App\Models\User;
+use App\Models\Cart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
@@ -45,6 +46,12 @@ class Register extends Component
         //dd($data);
         User::create($data);
         if(Auth::guard('user')->attempt($validatedData)){
+            $user = auth('user')->user();
+            Cart::create([
+                'status' => 'open',
+                'user_id' => $user->id,
+                'total' => 0
+            ]);
             session()->flash('message', "تم إنشاء حسابك بنجاح");
             return redirect()->route('home');
         }
