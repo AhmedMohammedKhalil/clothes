@@ -65,4 +65,19 @@ class Product extends Model
     public function scopeImageNotCovers() {
         return $this->images()->where('cover_name',null)->get();
     }
+
+    public function carts() {
+        return $this->belongsToMany(Cart::class,'orders','product_id')
+                ->withPivot('qty')
+                ->withTimestamps();
+    }
+
+    public function scopeProductQty() {
+        $carts = $this->carts()->where('status','open')->get();
+        $total = 0 ;
+        foreach($carts as $cart) {
+            $total += $cart->pivot->qty;
+        }
+        return $total;
+    }
 }
