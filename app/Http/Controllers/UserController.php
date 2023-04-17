@@ -58,7 +58,6 @@ class UserController extends Controller
         $user = User::find(auth('user')->user()->id);
         $order = Order::find($r->id);
         $total = $order->qty * $order->price;
-        // $user->update(['balance' => $user->balance + $total]);
         $user->openCart()->update(['total' => $user->openCart()->total - $total]);
         $order->delete();
         return redirect()->route('user.cart');

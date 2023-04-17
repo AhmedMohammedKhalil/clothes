@@ -2,8 +2,9 @@
 
 namespace App\Http\Livewire\User;
 
-use Illuminate\Support\Facades\Auth;
+use App\Models\Cart;
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 
 class Login extends Component
 {
@@ -26,7 +27,17 @@ class Login extends Component
     public function login(){
         $validatedData = $this->validate();
         if(Auth::guard('user')->attempt($validatedData)){
-
+            $cart = Cart::where([
+                ['user_id',auth('user')->user()->id],
+                ['status','open']
+            ])->first();
+            if(!$cart) {
+                Cart::create([
+                    'status' => 'open',
+                    'user_id' => auth('user')->user()->id,
+                    'total' => 0
+                ]);
+            }
             session()->flash('message', "تم دخولك ينجاح");
             return redirect()->route('home');
         }else{

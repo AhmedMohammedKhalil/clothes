@@ -14,11 +14,6 @@
                 @endif
 
                  @foreach ($cart->orders as $order)
-                    <div class="pt-item-description">
-                            <div class="pt-col">
-                                <h6 class="pt-title"><a href="#">{{ $loop->iteration }}</a></h6>
-                            </div>
-                    </div>
                     <div class="pt-item">
                         <div class="pt-item-img">
                             <a href="#"><img src="
@@ -40,12 +35,12 @@
                                 <ul class="pt-add-info">
                                     <li>اسم الشركة : <strong>{{ $order->product->company->name }}</strong></li>
                                     <li>الكمية: <strong>{{ $order->qty }}</strong></li>
-                                    <li>الاجمالي: <strong>{{ $order->price * $order->qty }} دينار  </strong></li>
+                                    <li>سعر المنتج : <strong>{{ $order->price}} دينار  </strong></li>
                                 </ul>
                             </div>
                             <div class="pt-col">
-                                <div class="pt-price" style="color:black !important;">سعر المنتج </div>
-                                <div class="pt-price"><br>{{ $order->price }} دينار  </div>
+                                <div class="pt-price" style="color:black !important;">الإجمالى</div>
+                                <div class="pt-price">{{ $order->price * $order->qty }} دينار</div>
                             </div>
 
                         </div>

@@ -54,6 +54,7 @@ class Product extends Model
 
 
     public function scopeImageCoverOne() {
+        //dd($this->images()->where('cover_name','cover_1')->first());
         return $this->images()->where('cover_name','cover_1')->first();
     }
 
@@ -68,7 +69,7 @@ class Product extends Model
 
     public function carts() {
         return $this->belongsToMany(Cart::class,'orders','product_id')
-                ->withPivot('qty')
+                ->withPivot(['qty','price'])
                 ->withTimestamps();
     }
 

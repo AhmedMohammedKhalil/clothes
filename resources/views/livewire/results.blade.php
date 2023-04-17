@@ -60,6 +60,11 @@
                                             <span class="new-price">{{ $product->price }} دينار</span>
                                         @endif
                                     </div>
+                                    <div style="margin-top:10px">
+                                        @auth('user')
+                                            @livewire('user.add-order', ['p_id' => $product->id], key('cart_'.$product->id))
+                                        @endauth
+                                    </div>
                                 </div>
                             </div>
                         </div>

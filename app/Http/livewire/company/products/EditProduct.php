@@ -105,14 +105,21 @@ class EditProduct extends Component
         $validatedata = $this->validate();
         $validatedata = array_merge($validatedata,['offer' => $this->offer]);
         Product::whereId($this->product_id)->update($validatedata);
-
+        if(!file_exists(public_path('images/products/'.$this->product_id))) {
+            mkdir(public_path('images/products/'.$this->product_id));
+            mkdir(public_path('images/products/'.$this->product_id.'/covers/'));
+            mkdir(public_path('images/products/'.$this->product_id.'/imgs/'));
+        }
         if($this->image1) {
             $imagename1 = $this->image1->getClientOriginalName();
-            Image::where([
-                ['product_id','=',$this->product_id],
-                ['cover_name','=','cover_1']
-                ])->update(['image_url' => $imagename1]);
+                Image::updateOrCreate(
+                    ['product_id' => $this->product_id , 'cover_name' => 'cover_1' ],
+                    ['image_url' => $imagename1]
+                );
+
+
             $path = 'images/products/'.$this->product_id.'/covers/cover-1/';
+
             $dir = public_path($path);
             if(file_exists($dir))
                 File::deleteDirectory($dir);
@@ -123,10 +130,11 @@ class EditProduct extends Component
         }
         if($this->image2) {
             $imagename2 = $this->image2->getClientOriginalName();
-            Image::where([
-                ['product_id','=',$this->product_id],
-                ['cover_name','=','cover_2']
-                ])->update(['image_url' => $imagename2]);
+            Image::updateOrCreate(
+                ['product_id' => $this->product_id , 'cover_name' => 'cover_2' ],
+                ['image_url' => $imagename2]
+            );
+
             $path = 'images/products/'.$this->product_id.'/covers/cover-2/';
             $dir = public_path($path);
             if(file_exists($dir))

@@ -1,72 +1,69 @@
 @extends('users.layout')
+@push('css')
+    <style>
+        .pt-item-description {
+            width:900px
+        }
+    </style>
+@endpush
 @section('section')
 
-    <main id="pt-pageContent">
-        <div class="container-indent">
-            <div class="container">
-                <h1 class="pt-title-subpages noborder">  المشتريات</h1>
-                <div class="pt-shopcart-page ">
-                    <div class="pt-item ">
-                        <div class="pt-item-description ">
-                            <div class="pt-col">
-                                <h6 class="pt-title">#</a></h6>
-                            </div>
-                        </div>
-                        <div class="pt-item-description ">
-                            <div class="pt-col">
-                                <h6 class="pt-title"><a href="#">عدد المشتريات</a></h6>
-                            </div>
-                        </div>
-                        <div class="pt-item-description ">
-                            <div class="pt-col">
-                                <h6 class="pt-title"><a href="#">الاجمالي</a></h6>
-                            </div>
-                        </div>
-                        <div class="pt-item-description ">
-                            <div class="pt-col">
-                                <h6 class="pt-title"><a href="#">اعدادات</a></h6>
-                            </div>
-                        </div>
-                    </div>
-                @if($carts->count() == 0)
-                    <div class="pt-item">
-                        <h3>لا يوجد طلبات</h3>
-                    </div>
-                @endif
+<h1 class="pt-title-subpages noborder">{{ $page_name }}</h1>
 
-                @if($carts->count() > 0)
-                 @foreach ($carts as $cart)
-                    <div class="pt-item ">
-                        <div class="pt-item-description ">
-                            <div class="pt-col">
-                                <h6 class="pt-title"><a href="#">{{ $loop->iteration }}</a></h6>
-                            </div>
-                        </div>
+<div class="row justify-content-center">
 
-                        <div class="pt-item-description ">
-                            <div class="pt-col">
-                                <h6 class="pt-title"><a href="#">  عدد المشتريات :{{$cart->orders->count()}}</a></h6>
-                            </div>
-                        </div>
-                        <div class="pt-item-description ">
-                            <div class="pt-col">
-                                <h6 class="pt-title"><a href="#">الاجمالي: <strong>{{ $cart->total }} دينار </a></h6>
-                            </div>
-                        </div>
-
-                        <div class="pt-item-btn p-5">
-                            <a href="{{ route('user.orders',['id' => $cart->id]) }}" class="pt-btn js-remove-item">
-							<svg width="24" height="24" viewBox="0 0 24 24">
-								<use xlink:href="#icon-eye"></use>
-							</svg>
-						    </a>
-                        </div>
-                    </div>
-                    @endforeach
-                    @endif
-                </div>
+    <div class="pt-shopcart-page">
+        <div class="pt-item-description text-center row p-2">
+            <div class="pt-col col-2">
+                <p class="pt-title"><a href="#">#</a></p>
+            </div>
+            <div class="pt-col col-3">
+                <p class="pt-title"><a href="#">عدد المشتريات</a></p>
+            </div>
+            <div class="pt-col col-4">
+                <p class="pt-title"><a href="#">اجمالى المشتريات</a></p>
+            </div>
+            <div class="pt-col col-3">
+                <p class="pt-title"><a href="#">الاعدادات</a></p>
             </div>
         </div>
-    </main>
+        @if($carts->count() == 0)
+        <div class="pt-item-description text-center row p-2">
+            <div class="pt-col col-12">
+                <p class="pt-title"> لا يوجد طلبات</p>
+            </div>
+        </div>
+        @endif
+        @foreach ($carts as $cart)
+            <div class="pt-item-description text-center row p-2">
+                <div class="pt-col col-2">
+                        <p class="pt-title">{{ $loop->iteration }}</p>
+                </div>
+                <div class="pt-col col-3">
+                    <p class="pt-title">{{$cart->orders->count()}}
+                    </p>
+                </div>
+
+                <div class="pt-col col-4">
+                    <p class="pt-title">{{$cart->total}}</p>
+                </div>
+                <div class="pt-col col-3">
+                    <p class="pt-title">
+                        <a href="{{ route('user.orders',['id' => $cart->id]) }}" class="pt-btn js-remove-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24">
+                                <use xlink:href="#icon-eye"></use>
+                            </svg>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        @endforeach
+
+    </div>
+</div>
+
+
+
+
 
 @endsection

@@ -58,6 +58,11 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="pt-col col-8" style="margin-top:10px">
+                            @auth('user')
+                                @livewire('user.add-order', ['p_id' => $p->id], key('cart_'.$p->id))
+                            @endauth
+                        </div>
                     </div>
                 </div>
     </div>

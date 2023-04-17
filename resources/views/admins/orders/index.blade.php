@@ -61,13 +61,13 @@
                 <p class="pt-title"><a href="#">{{ $order->cart->user->name }}</a></p>
             </div>
             <div class="pt-col col-2">
-                <p class="pt-title"><a href="#"><br>{{ $order->product->price }} دينار  </a></p>
+                <p class="pt-title"><a href="#">{{ $order->product->price }} دينار  </a></p>
             </div>
             <div class="pt-col col-1">
-                <p class="pt-title"><a href="#"><br>{{ $order->qty }}</a></p>
+                <p class="pt-title"><a href="#">{{ $order->qty }}</a></p>
             </div>
             <div class="pt-col col-2">
-                <p class="pt-title"><a href="#"><br>{{ $order->product->price * $order->qty }} دينار  </a></p>
+                <p class="pt-title"><a href="#">{{ $order->product->price * $order->qty }} دينار  </a></p>
             </div>
         </div>
     @endforeach

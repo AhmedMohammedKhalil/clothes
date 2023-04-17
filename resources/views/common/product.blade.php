@@ -1,20 +1,20 @@
 <div class="container-indent pt-offset-md-productsingle">
     <!-- mobile product slider  -->
     <div id="js-init-mobile-productsingle" class="visible-xs arrow-location-center slick-animated-show-js">
-        @if($product->imageCoverOne != null)
-            <div><img src="{{ asset('images/products/'.$product->id.'/covers/cover-1/'.$image->image_url) }}" alt=""></div>
+        @if($product->imageCoverOne()->image_url != null)
+            <div><img src="{{ asset('images/products/'.$product->id.'/covers/cover-1/'.$product->imageCoverOne()->image_url) }}" alt=""></div>
         @else
             <div><img src="{{ asset('images/products/covers/cover_1.jpg') }}" alt=""></div>
         @endif
 
-        @if($product->imageCoverTwo != null)
-            <div><img src="{{ asset('images/products/'.$product->id.'/covers/cover-2/'.$image->image_url) }}" alt=""></div>
+        @if($product->imageCoverTwo()->image_url != null)
+            <div><img src="{{ asset('images/products/'.$product->id.'/covers/cover-2/'.$product->imageCoverTwo()->image_url) }}" alt=""></div>
         @else
             <div><img src="{{ asset('images/products/covers/cover_2.jpg') }}" alt=""></div>
         @endif
 
-        @if($product->imageNotCovers != null)
-            @foreach($product->imageNotCovers as $image)
+        @if($product->imageNotCovers() != null)
+            @foreach($product->imageNotCovers() as $image)
                 <div><img src="{{ asset('images/products/'.$product->id.'/imgs/'.$image->id.'/'.$image->image_url) }}" alt=""></div>
             @endforeach
         @else
@@ -31,8 +31,8 @@
                 <div class="pt-product-vertical-layout">
                     <div class="pt-product-single-img no-zoom">
                         <div>
-                            @if($product->imageCoverOne != null)
-                                <img class="zoom-product" src='{{ asset('images/products/'.$product->id.'/covers/cover-1/'.$image->image_url) }}' data-zoom-image="{{ asset('images/products/'.$product->id.'/covers/cover-1/'.$image->image_url) }}" alt="">
+                            @if($product->imageCoverOne()->image_url != null)
+                                <img class="zoom-product" src='{{ asset('images/products/'.$product->id.'/covers/cover-1/'.$product->imageCoverOne()->image_url) }}' data-zoom-image="{{ asset('images/products/'.$product->id.'/covers/cover-1/'.$image->image_url) }}" alt="">
                             @else
                                 <img class="zoom-product" src='{{ asset('images/products/covers/cover_1.jpg') }}' data-zoom-image="{{ asset('images/products/covers/cover_1.jpg') }}" alt="">
                             @endif
@@ -45,19 +45,19 @@
                     </div>
                     <div class="pt-product-single-carousel-vertical">
                         <ul id="smallGallery" class="pt-slick-button-vertical slick-animated-show">
-                            @if($product->imageCoverOne != null)
-                                <li><a class="zoomGalleryActive" href="#" data-image="{{ asset('images/products/'.$product->id.'/covers/cover-1/'.$image->image_url) }}" data-zoom-image="{{ asset('images/products/'.$product->id.'/covers/cover-1/'.$image->image_url) }}"><img src="{{ asset('images/products/'.$product->id.'/covers/cover-1/'.$image->image_url) }}" alt=""></a></li>
+                            @if($product->imageCoverOne()->image_url != null)
+                                <li><a class="zoomGalleryActive" href="#" data-image="{{ asset('images/products/'.$product->id.'/covers/cover-1/'.$product->imageCoverOne()->image_url) }}" data-zoom-image="{{ asset('images/products/'.$product->id.'/covers/cover-1/'.$product->imageCoverOne()->image_url) }}"><img src="{{ asset('images/products/'.$product->id.'/covers/cover-1/'.$product->imageCoverOne()->image_url) }}" alt=""></a></li>
                             @else
                                 <li><a class="zoomGalleryActive" href="#" data-image="{{ asset('images/products/covers/cover_1.jpg') }}" data-zoom-image="{{ asset('images/products/covers/cover_1.jpg') }}"><img src="{{ asset('images/products/covers/cover_1.jpg') }}" alt=""></a></li>
                             @endif
-                            @if($product->imageCoverTwo != null)
-                                <li><a href="#" data-image="{{ asset('images/products/'.$product->id.'/covers/cover-2/'.$image->image_url) }}" data-zoom-image="{{ asset('images/products/'.$product->id.'/covers/cover-2/'.$image->image_url) }}"><img src="{{ asset('images/products/'.$product->id.'/covers/cover-2/'.$image->image_url) }}" alt=""></a></li>
+                            @if($product->imageCoverTwo()->image_url != null)
+                                <li><a href="#" data-image="{{ asset('images/products/'.$product->id.'/covers/cover-2/'.$product->imageCoverTwo()->image_url) }}" data-zoom-image="{{ asset('images/products/'.$product->id.'/covers/cover-2/'.$product->imageCoverTwo()->image_url) }}"><img src="{{ asset('images/products/'.$product->id.'/covers/cover-2/'.$product->imageCoverTwo()->image_url) }}" alt=""></a></li>
                             @else
                                 <li><a href="#" data-image="{{ asset('images/products/covers/cover_2.jpg') }}" data-zoom-image="{{ asset('images/products/covers/cover_2.jpg') }}"><img src="{{ asset('images/products/covers/cover_2.jpg') }}" alt=""></a></li>
                             @endif
 
-                            @if($product->imageNotCovers != null)
-                                @foreach($product->imageNotCovers as $image)
+                            @if($product->imageNotCovers() != null)
+                                @foreach($product->imageNotCovers() as $image)
                                     <li><a href="#" data-image="{{ asset('images/products/'.$product->id.'/imgs/'.$image->id.'/'.$image->image_url) }}" data-zoom-image="{{ asset('images/products/'.$product->id.'/imgs/'.$image->id.'/'.$image->image_url) }}"><img src="{{ asset('images/products/'.$product->id.'/imgs/'.$image->id.'/'.$image->image_url) }}" alt=""></a></li>
                                 @endforeach
                             @else
@@ -90,6 +90,11 @@
                             <li><span style="width: 100px;display:inline-block;color:black">المقاس </span>{{ $product->size->name }}</li>
                             <li><span style="width: 100px;display:inline-block;color:black">اللون </span>{{ $product->color }}</li>
                         </ul>
+                    </div>
+                    <div class="pt-col col-8" style="margin-top:10px">
+                        @auth('user')
+                            @livewire('user.add-order', ['p_id' => $product->id], key('cart_'.$product->id))
+                        @endauth
                     </div>
                 </div>
             </div>
