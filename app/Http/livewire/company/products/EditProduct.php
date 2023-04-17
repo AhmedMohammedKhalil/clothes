@@ -12,7 +12,7 @@ use App\Models\Material;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\File;
 
-class EDitProduct extends Component
+class EditProduct extends Component
 {
     use WithFileUploads;
     public $product_id,$name,$price,$offer,$gender_id,$material_id,$size_id,$category_id,$details,$color,$image1,$image2,$image_opt=1,$images=[];

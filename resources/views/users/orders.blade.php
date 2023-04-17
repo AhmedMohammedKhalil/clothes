@@ -1,29 +1,34 @@
-@extends('admins.layout')
+@extends('users.layout')
 @section('section')
+
 <h1 class="pt-title-subpages noborder">{{ $page_name }}</h1>
 
-<div class=" justify-content-center">
+<div class="row justify-content-center">
 
     <div class="pt-shopcart-page">
-        @if($orders->count() == 0)
+        @if($cart->orders->count() == 0)
                                         <tr>
                                             <th colspan="6">لا يوجد طلبات</th>
                                         </tr>
                                     @endif
-        @foreach ($orders as $order) 
+        @foreach ($cart->orders as $order) 
             <div class="pt-item-description text-center row p-5">
                 <div class="pt-col col-2">
                         <p class="pt-title"><a href="#">{{ $loop->iteration }}</a></p>
                 </div>
-                <div class="pt-item-img">
-                    <a href="#">
-                        @if($order->cart->user->image)
-                                <img src="{{ asset('images/users/'.$order->cart->user->id.'/'.$order->cart->user->image) }}" alt="" style="width:100px;height:100px">
-                            @else
-                                <img src="{{ asset('images/users/about-img-02.jpg') }}" alt="" style="width:100px;height:100px">
-                        @endif
-                    </a>
-                </div>  
+                <div class="pt-item-img col-2">
+                                <a href="#"><img src="
+                                            @if($order->product->images->count() > 0)
+                                                @foreach($order->product->images as $image)
+                                                    @if($image->cover_name == 'cover_1')
+                                                    {{ asset('images/products/'.$order->product->id.'/covers/cover-1/'.$image->image_url) }}
+                                                    @endif
+                                                @endforeach
+                                            @else
+                                                {{ asset('images/products/covers/cover_1.jpg') }}
+                                            @endif
+                                            " alt=""></a>
+                </div>
                 
                 <div class="pt-col col-2">
                     <p class="pt-title"><a href="#">{{ $order->product->name }}</a></p>
@@ -42,5 +47,6 @@
 
     </div>
 </div>
+
 
 @endsection

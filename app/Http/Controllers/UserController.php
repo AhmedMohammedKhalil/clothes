@@ -43,19 +43,21 @@ class UserController extends Controller
     }
 
     public function showCarts() {
+        $page_name = 'عربة الطلبات';
         $carts = User::find(auth('user')->user()->id)->closeCarts();
-        return view('users.closeCarts',compact('carts'));
+        return view('users.closeCarts',compact('carts','page_name'));
     }
 
     public function showOrders(Request $r) {
+        $page_name = 'عرض الطلبات';
         $cart = Cart::find($r->id);
-        return view('users.orders',compact('cart'));
+        return view('users.orders',compact('cart','page_name'));
     }
 
     public function delOrder(Request $r) {
         $user = User::find(auth('user')->user()->id);
         $order = Order::find($r->id);
-        $total = $order->qty * $order->product->price;
+        $total = $order->qty * $order->price;
         // $user->update(['balance' => $user->balance + $total]);
         $user->openCart()->update(['total' => $user->openCart()->total - $total]);
         $order->delete();
@@ -65,14 +67,6 @@ class UserController extends Controller
     public function checkout() {
 
         $user = User::find(auth('user')->user()->id);
-        foreach($user->openCart()->orders as $order) {
-            $product = Product::find($order->product_id);
-            if(($product->qty - $order->qty) == 0)
-                $product->update(['qty' => $product->qty - $order->qty ,'available' => 0]);
-            else
-            $product->update(['qty' => $product->qty - $order->qty]);
-
-        }
         $user->openCart()->update(['status' => 'close']);
 
         Cart::create([

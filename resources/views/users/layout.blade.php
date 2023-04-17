@@ -19,7 +19,7 @@
                     <div class="pt-aside-content">
                         <ul class="pt-list-row">
                             <li><a href="{{ route('user.cart') }}">عربة التسوق</a></li>
-                            <li><a href="{{ route('user.carts') }}">جميع أوردراتى</a></li>
+                            <li><a href="{{ route('user.carts') }}"> المشتريات السابقة</a></li>
                         </ul>
                     </div>
                 </div>
