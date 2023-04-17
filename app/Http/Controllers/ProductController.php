@@ -29,6 +29,13 @@ class ProductController extends Controller
     }
 
 
+    public function showProduct(Request $r) {
+        $page_name = 'عرض الملابس';
+        $product = Product::whereId($r->id)->first();
+        return view('companies.products.show',compact('page_name','product'));
+    }
+
+
 
     public function deleteProduct(Request $r) {
         Image::where('product_id',$r->id)->delete();

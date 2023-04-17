@@ -39,14 +39,14 @@
                     <div class="pt-description">
                         <div class="pt-title-02">ملابس نسائية</div>
                         <p>فساتين أنيقة لتتألقى فى جميع المناسبات</p>
-                        <a href="#" class="btn">تسوقى الآن</a>
+                        <a href="{{ route('shop',['page_type' => 'gender', 'content' => 'نسائى']) }}" class="btn">تسوقى الآن</a>
                     </div>
                 </div>
                 <div class="pt-parallax-01">
                     <div class="pt-description">
                         <div class="pt-title-02">ملابس رجالية</div>
                         <p>جلاليب رجالية مطرزة لإنقاتك طوال اليوم</p>
-                        <a href="#" class="btn">تسوق الآن</a>
+                        <a href="{{ route('shop',['page_type' => 'gender', 'content' => 'رجالى']) }}" class="btn">تسوق الآن</a>
                     </div>
                     <div class="pt-img">
                         <div class="pt-img-main">
@@ -69,10 +69,10 @@
         <div class="pt-layout-promo-card-02">
             <div class="row">
             @foreach ($categories as $c)
-                <div class="col-md-6">
-                    <a href="#" class="pt-promo-card-02">
+                <div class="col-md-4">
+                    <a href="{{ route('shop',['page_type' => 'category', 'content' => $c->name]) }}" class="pt-promo-card-02">
                         <div class="image-box">
-                            <img style="height:570px" src="{{ asset("images/categories/".$c->id."/".$c->image) }}" alt="">
+                            <img style="height:400px" src="{{ asset("images/categories/".$c->id."/".$c->image) }}" alt="">
                         </div>
                         <div class="pt-description">
                             <div class="pt-title">
@@ -83,32 +83,6 @@
                     </a>
                 </div>
             @endforeach
-                {{-- <div class="col-md-6">
-                    <a href="#" class="pt-promo-card-02">
-                        <div class="image-box">
-                            <img style="height:570px" src="{{ asset('images/slides/slide-03.jpg')}}" alt="">
-                        </div>
-                        <div class="pt-description">
-                            <div class="pt-title">
-                               الجلاليب
-                            </div>
-                            <div class="btn btn-border">تسوق الآن</div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6">
-                    <a href="#" class="pt-promo-card-02">
-                        <div class="image-box">
-                            <img style="height:570px" src="{{ asset('images/slides/slider-02.jpg')}}" alt="">
-                        </div>
-                        <div class="pt-description">
-                            <div class="pt-title">
-                                الفساتين
-                            </div>
-                            <div class="btn btn-border">تسوقى الآن</div>
-                        </div>
-                    </a>
-                </div> --}}
             </div>
         </div>
     </div>

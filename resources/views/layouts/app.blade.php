@@ -62,7 +62,8 @@
                         <!-- mobile logo -->
                         <div class="pt-logo pt-logo-alignment">
                             <a href="{{ route('home') }}" itemprop="url">
-                                <h2 class="pt-title">Clothes</h2>
+                                {{-- <h2 class="pt-title">Clothes</h2> --}}
+                                <img src="{{ asset('images/logo.jpg') }}" alt="">
                             </a>
                         </div>
                         <!-- /mobile logo -->
@@ -83,7 +84,8 @@
                     <!-- logo -->
                     <div class="pt-logo pt-logo-alignment">
                         <a href="{{ route('home') }}" itemprop="url">
-                            <h2 class="pt-title">Clothes</h2>
+                            {{-- <h2 class="pt-title">Clothes</h2> --}}
+                            <img src="{{ asset('images/logo.jpg') }}" alt="">
                         </a>
                     </div>
                     <!-- /logo -->
@@ -97,10 +99,10 @@
                                             <a href="{{ route('home') }}"><span>الرئيسية</span></a>
                                         </li>
                                         <li class="dropdown">
-                                            <a href="index-rtl.html"><span>ملابس الرجال</span></a>
+                                            <a href="{{ route('shop',['page_type' => 'gender', 'content' => 'رجالى']) }}"><span>ملابس الرجال</span></a>
                                         </li>
                                         <li class="dropdown">
-                                            <a href="index-rtl.html"><span>ملابس النساء</span></a>
+                                            <a href="{{ route('shop',['page_type' => 'gender', 'content' => 'نسائى']) }}"><span>ملابس النساء</span></a>
                                         </li>
                                         <li class="dropdown">
                                             <a href="{{ route('aboutUs') }}"><span>من نحن</span></a>
@@ -124,28 +126,7 @@
                                 </button>
                                 <div class="pt-dropdown-menu">
                                     <div class="container">
-                                        <form>
-                                            <div class="pt-col">
-                                                <input type="text" class="pt-search-input"
-                                                    placeholder="ابحث عن ما تريد ....">
-                                                <button class="pt-btn-search" type="submit">
-                                                    <svg width="24" height="24" viewBox="0 0 24 24">
-                                                        <use xlink:href="#icon-search"></use>
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <div class="pt-col">
-                                                <button class="pt-btn-close">
-                                                    <svg width="16" height="16" viewBox="0 0 16 16">
-                                                        <use xlink:href="#icon-close"></use>
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <div class="pt-info-text">
-                                                ابحث عن ما تريد ؟
-                                            </div>
-                                            <div class="search-results"></div>
-                                        </form>
+                                        @livewire('search', key('search'))
                                     </div>
                                 </div>
                             </div>
@@ -308,7 +289,9 @@
 
                     <div class="pt-logo pt-logo-alignment d-none d-lg-block">
                         <a href="{{ route('home') }}" itemprop="url">
-                            <h2 class="pt-title">Clothes</h2>
+                            {{-- <h2 class="pt-title">Clothes</h2> --}}
+                            <img src="{{ asset('images/logo.jpg') }}" alt="">
+
                         </a>
                     </div>
 
@@ -316,7 +299,9 @@
                         <!-- mobile logo -->
                         <div class="pt-logo pt-logo-alignment">
                             <a href="{{ route('home') }}" itemprop="url">
-                                <h2 class="pt-title">Clothes</h2>
+                                {{-- <h2 class="pt-title">Clothes</h2> --}}
+                                <img src="{{ asset('images/logo.jpg') }}" alt="">
+
                             </a>
                         </div>
                         <!-- /mobile logo -->
@@ -378,6 +363,8 @@
     <script src="{{ asset('js/jquery.counterup.min.js') }}"></script>
 
     @livewireScripts
+
+
     @stack('js')
 </body>
 

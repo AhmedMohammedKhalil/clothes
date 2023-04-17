@@ -88,17 +88,20 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="pt-description">
-                            <div class="pt-col">
+                        <div class="pt-description justify-center">
+                            <div class="pt-col ">
 
                                 <h2 class="pt-title"><a href="{{ route('company.products.showProduct',['id' => $product->id]) }}">{{ $product->name }}</a></h2>
                                 <ul class="pt-add-info">
-                                    <li>{{ $product->category->name }}</li>
-                                    <li>{{ $product->material->name }}</li>
-                                    <li>{{ $product->size->name }}</li>
                                     <li>{{ $product->gender->name }}</li>
-                                    <li>{{ $product->color }}</li>
+                                    <li><span style="width: 100px">الشركة </span>{{ $product->company->name }}</li>
+                                    <li><span style="width: 100px">النوع </span>{{ $product->category->name }}</li>
+                                    <li><span style="width: 100px">الخامة </span>{{ $product->material->name }}</li>
+                                    <li><span style="width: 100px">المقاس </span>{{ $product->size->name }}</li>
+                                    <li><span style="width: 100px">اللون </span>{{ $product->color }}</li>
                                 </ul>
+                            </div>
+                            <div class="pt-col ">
                                 <div class="pt-price d-block">
                                     @if($product->offer != 0)
                                     <span class="old-price">{{ $product->price }} دينار</span> <br>

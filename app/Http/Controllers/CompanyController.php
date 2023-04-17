@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -63,6 +64,17 @@ class CompanyController extends Controller
 
     public function changePassword() {
         return view('companies.changePassword',['page_name' => 'تغيير كلمة السر']);
+    }
+
+
+    public function showOrders() {
+        $products = auth('company')->user()->products;
+        $ids = [];
+        foreach($products as $p)
+            array_push($ids,$p->id);
+        $orders = Order::whereIn('product_id',$ids)->get();
+        $page_name = 'جميع الاوردرات';
+        return view('companies.orders',compact('orders','page_name'));
     }
 
     public function logout(Request $request) {

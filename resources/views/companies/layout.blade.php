@@ -19,7 +19,7 @@
                     <div class="pt-aside-content">
                         <ul class="pt-list-row">
                             <li><a href="{{ route('company.products.allproducts') }}">إدارة المنتجات</a></li>
-                            <li><a href="page-terms.html">جميع الأوردات</a></li>
+                            <li><a href="{{ route('company.orders') }}">جميع الأوردات</a></li>
                         </ul>
                     </div>
                 </div>

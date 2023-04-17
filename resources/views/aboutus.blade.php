@@ -1,9 +1,17 @@
 @extends('layouts.app')
-
+@section('breadcrumb')
+<div class="pt-breadcrumb">
+    <div class="container-fluid">
+        <ul>
+            <li><a href="{{ route('home') }}">الرئيسية</a></li>
+            <li>{{ $page_name }}</li>
+        </ul>
+    </div>
+</div>
+@endsection
 @section('content')
- <main id="pt-pageContent" style="height: calc(100vh - 250px);" >
-        <div class="container-indent">
-            <div class="container">
+        <div class="container-indent" style="height: calc(100vh - 150px);margin: 150px 0">
+            <div class="container" style="height:100%">
                 <div class="pt-about">
                     <div class="pt-img">
                         <div class="pt-img-main">
@@ -22,6 +30,4 @@
                 </div>
             </div>
         </div>
-    </main>
-
 @endsection
