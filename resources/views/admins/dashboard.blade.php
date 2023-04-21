@@ -11,7 +11,8 @@
                         <div class="col-md-4">
                             <a href="#" class="pt-promo-card-02">
                                 <div class="image-box">
-                                    <img src="{{ asset('images/admins/about-img-02.jpg') }}" alt="">
+                                    <img style="height: 290px
+;" src="{{ asset('images/admins/dashboardimages/company.jpg') }}" alt="">
                                 </div>
                                 <div class="pt-description">
                                     <div class="pt-title">
@@ -27,7 +28,8 @@
                         <div class="col-md-4">
                             <a href="#" class="pt-promo-card-02">
                                 <div class="image-box">
-                                    <img src="{{ asset('images/admins/about-img-02.jpg') }}" alt="">
+                                    <img style="height: 290px
+;" src="{{ asset('images/admins/dashboardimages/users.jpg') }}" alt="">
                                 </div>
                                 <div class="pt-description">
                                     <div class="pt-title">
@@ -43,7 +45,8 @@
                         <div class="col-md-4">
                             <a href="#" class="pt-promo-card-02">
                                 <div class="image-box">
-                                    <img src="{{ asset('images/admins/about-img-02.jpg') }}" alt="">
+                                    <img style="height: 290px
+;" src="{{ asset('images/admins/dashboardimages/orders.jpg') }}" alt="">
                                 </div>
                                 <div class="pt-description">
                                     <div class="pt-title">
@@ -59,7 +62,8 @@
                            <div class="col-md-4">
                             <a href="#" class="pt-promo-card-02">
                                 <div class="image-box">
-                                    <img src="{{ asset('images/admins/about-img-02.jpg') }}" alt="">
+                                    <img style="height: 290px
+;" src="{{ asset('images/admins/dashboardimages/clothes (2).jpg') }}" alt="">
                                 </div>
                                 <div class="pt-description">
                                     <div class="pt-title">
@@ -75,7 +79,8 @@
                         <div class="col-md-4">
                             <a href="#" class="pt-promo-card-02">
                                 <div class="image-box">
-                                    <img src="{{ asset('images/admins/about-img-02.jpg') }}" alt="">
+                                    <img style="height: 290px
+;" src="{{ asset('images/admins/dashboardimages/types.jpg') }}" alt="">
                                 </div>
                                 <div class="pt-description">
                                     <div class="pt-title">
@@ -94,7 +99,8 @@
                         <div class="col-md-4">
                             <a href="#" class="pt-promo-card-02">
                                 <div class="image-box">
-                                    <img src="{{ asset('images/admins/about-img-02.jpg') }}" alt="">
+                                    <img style="height: 290px
+;" src="{{ asset('images/admins/dashboardimages/materials.jpg') }}" alt="">
                                 </div>
                                 <div class="pt-description">
                                     <div class="pt-title">
