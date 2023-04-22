@@ -23,6 +23,7 @@ class Product extends Model
         'gender_id',
     ];
 
+
     public function category() {
         return $this->belongsTo(Category::class);
     }
@@ -81,4 +82,26 @@ class Product extends Model
         }
         return $total;
     }
+
+    public function getCategoryNameAttribute() {
+        $categoryName = $this->category()->first()->name;
+        $name = match($categoryName) {
+            'قمصان' => 'shirts',
+            'شورتات' => 'shorts',
+            'بناطيل' => 'trousers',
+            'سترات' => 'jackets',
+            'معاطف' => 'coats',
+            'بلوزات' => 'sweaters',
+            'فساتين' => 'dresses',
+            'جلاليب' => 'glalib',
+            'عبايات' => 'abayat',
+            'اسدال' => 'esdal',
+            'تيشرت' => 'tshirt',
+            'سويت شيرت' => 'sweatshirt'
+        };
+        return $name;
+    }
+
+    Protected $appends = ['category_name'];
+
 }

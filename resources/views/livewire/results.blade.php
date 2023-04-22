@@ -11,6 +11,8 @@
                                 @endif
                             @endforeach
                         @else
+                            {{-- {{ asset('images/products/categories/'.$product->category_name.'/cover-2.jpg') }} --}}
+
                             {{ asset('images/products/covers/cover_2.jpg') }}
                         @endif
                         ">
@@ -31,6 +33,8 @@
                                                     @endif
                                                 @endforeach
                                             @else
+                                                {{-- {{ asset('images/products/categories/'.$product->category_name.'/cover-1.jpg') }} --}}
+
                                                 {{ asset('images/products/covers/cover_1.jpg') }}
                                             @endif
                                             " alt="image">
