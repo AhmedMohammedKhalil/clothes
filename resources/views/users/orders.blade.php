@@ -50,7 +50,7 @@
                                 @endif
                             @endforeach
                         @else
-                        {{ asset('images/products/categories/'.$order->product->category_name.'/cover-1.jpg') }}
+                            {{ asset('images/products/categories/'.$order->product->category_name.'/cover-1.jpg') }}
                         @endif
                         " alt="">
                     </a>
