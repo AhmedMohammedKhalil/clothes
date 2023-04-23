@@ -10,7 +10,7 @@
 
     <title>{{ config('app.name', 'Clothes Recomendation') }}</title>
 
-    <link rel="shortcut icon" href="{{ asset('favicon/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('favicon/favicon (1).ico') }}">
     <meta name="format-detection" content="telephone=no">
 
 
@@ -36,8 +36,8 @@
         <nav class="panel-menu mobile-main-menu">
             <ul>
                 <li><a href="{{ route('home') }}">الرئيسية</a></li>
-                <li><a href="index-rtl.html">ملابس الرجال</a></li>
-                <li><a href="index-rtl.html">ملابس النساء</a></li>
+                <li><a href="{{ route('shop',['page_type' => 'gender', 'content' => 'رجالى']) }}">ملابس الرجال</a></li>
+                <li><a href="{{ route('shop',['page_type' => 'gender', 'content' => 'نسائى']) }}">ملابس النساء</a></li>
                 <li><a href="{{ route('aboutUs') }}">من نحن</a></li>
             </ul>
             <div class="mm-navbtn-names">
