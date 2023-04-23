@@ -27,7 +27,7 @@ class CategorySeeder extends Seeder
             'image'=>'2402bdfe7310deec8a17adec34f90508c7c5a9d9.jpg'
         ]);
         DB::table('categories')->insert([
-            'name' => ' السترات ',
+            'name' => 'السترات',
             'image'=>'b5ad302779e7de0f290dc17750e404ce267a334b.jpg'
         ]);
         DB::table('categories')->insert([

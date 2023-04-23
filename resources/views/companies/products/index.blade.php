@@ -44,12 +44,8 @@
                 <div class="col-6 col-md-6 col-lg-4 col-xl-custom-4">
                     <div class="pt-product" style="background:white" data-rollover="
 
-                    @if($product->images->count() > 0)
-                        @foreach($product->images as $image)
-                            @if($image->cover_name == 'cover_2')
-                            {{ asset('images/products/'.$product->id.'/covers/cover-2/'.$image->image_url) }}
-                            @endif
-                        @endforeach
+                    @if($product->imageCoverTwo() != null)
+                        {{ asset('images/products/'.$product->id.'/covers/cover-2/'.$product->imageCoverTwo()->image_url) }}
                     @else
                         {{ asset('images/products/categories/'.$product->category_name.'/cover-2.jpg') }}
 
@@ -76,12 +72,8 @@
                                 <div class="pt-img">
                                     <picture>
                                         <img class="lazyload" src="
-                                        @if($product->images->count() > 0)
-                                            @foreach($product->images as $image)
-                                                @if($image->cover_name == 'cover_1')
-                                                {{ asset('images/products/'.$product->id.'/covers/cover-1/'.$image->image_url) }}
-                                                @endif
-                                            @endforeach
+                                        @if($product->imageCoverOne() != null)
+                                            {{ asset('images/products/'.$product->id.'/covers/cover-1/'.$product->imageCoverOne()->image_url) }}
                                         @else
                                             {{ asset('images/products/categories/'.$product->category_name.'/cover-1.jpg') }}
 

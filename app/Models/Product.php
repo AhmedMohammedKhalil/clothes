@@ -56,11 +56,11 @@ class Product extends Model
 
     public function scopeImageCoverOne() {
         //dd($this->images()->where('cover_name','cover_1')->first());
-        return $this->images()->where('cover_name','cover_1')->first();
+        return $this->images()->where('cover_name','cover_1');
     }
 
     public function scopeImageCoverTwo() {
-        return $this->images()->where('cover_name','cover_2')->first();
+        return $this->images()->where('cover_name','cover_2');
     }
 
 
@@ -86,21 +86,47 @@ class Product extends Model
     public function getCategoryNameAttribute() {
         $categoryName = (string) $this->category()->first()->name;
        // dd($categoryName);
-        $name = (string) match($categoryName) {
-            'قمصان' => 'shirts',
-            'شورتات' => 'shorts',
-            'بنطالونات' => 'trousers',
-            'السترات' => 'jackets',
-            'المعاطف' => 'coats',
-            'البلوزات' => 'sweaters',
-            'الفساتين' => 'dresses',
-            'جلاليب' => 'glalib',
-            'عبايات' => 'abayat',
-            'اسدال' => 'esdal',
-            'تيشيرت' => 'tshirt',
-            'سويت شيرت' => 'sweatshirt'
-        };
-        return $name;
+        if($categoryName) {
+            switch($categoryName) {
+                case "قمصان" :
+                    return "shirts";
+
+                case "شورتات" :
+                    return  "shorts";
+
+                case "بنطالونات" :
+                    return  "trousers";
+
+                case "السترات" :
+                    return "jackets";
+
+                case "المعاطف":
+                    return "coats";
+
+                case "البلوزات":
+                    return "sweaters";
+
+                case "الفساتين":
+                    return "dresses";
+
+                case "جلاليب":
+                    return "glalib";
+
+                case "عبايات":
+                    return "abayat";
+
+                case "اسدال":
+                    return "esdal";
+
+                case "تيشيرت":
+                    return "tshirt";
+
+                case "سويت شيرت":
+                    return "sweatshirt";
+
+            }
+        }
+
     }
 
     Protected $appends = ['category_name'];

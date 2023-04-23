@@ -1,14 +1,10 @@
 @if($product->id != $p->id)
     <div class="col-6 col-md-4 pt-col-item">
         <div class="pt-product" style="background:white" data-rollover="
-                @if($p->images->count() > 0)
-                    @foreach($p->images as $image)
-                        @if($image->cover_name == 'cover_2')
-                        {{ asset('images/products/'.$p->id.'/covers/cover-2/'.$image->image_url) }}
-                        @endif
-                    @endforeach
+                @if($p->imageCoverTwo()->first() != null)
+                    {{ asset('images/products/'.$p->id.'/covers/cover-2/'.$p->imageCoverTwo()->first()->image_url) }}
                 @else
-                    {{ asset('images/products/categories/'.$product->category_name.'/cover-2.jpg') }}
+                    {{ asset('images/products/categories/'.$p->category_name.'/cover-2.jpg') }}
 
                     {{-- {{ asset('images/products/covers/cover_2.jpg') }} --}}
                 @endif
@@ -23,14 +19,10 @@
                             <div class="pt-img">
                                 <picture>
                                     <img class="lazyload" src="
-                                    @if($p->images->count() > 0)
-                                        @foreach($p->images as $image)
-                                            @if($image->cover_name == 'cover_1')
-                                            {{ asset('images/products/'.$p->id.'/covers/cover-1/'.$image->image_url) }}
-                                            @endif
-                                        @endforeach
+                                    @if($p->imageCoverOne()->first() != null)
+                                        {{ asset('images/products/'.$p->id.'/covers/cover-1/'.$p->imageCoverOne()->first()->image_url) }}
                                     @else
-                                        {{ asset('images/products/categories/'.$product->category_name.'/cover-1.jpg') }}
+                                        {{ asset('images/products/categories/'.$p->category_name.'/cover-1.jpg') }}
 
                                         {{-- {{ asset('images/products/covers/cover_1.jpg') }} --}}
                                     @endif

@@ -4,12 +4,8 @@
         @foreach ($prod as $product)
             <div class="col-6 col-md-4 pt-col-item">
                 <div class="pt-product" style="background:white" data-rollover="
-                        @if($product->images->count() > 0)
-                            @foreach($product->images as $image)
-                                @if($image->cover_name == 'cover_2')
-                                {{ asset('images/products/'.$product->id.'/covers/cover-2/'.$image->image_url) }}
-                                @endif
-                            @endforeach
+                        @if($product->imageCoverTwo()->first() != null)
+                            {{ asset('images/products/'.$product->id.'/covers/cover-2/'.$product->imageCoverTwo()->first()->image_url) }}
                         @else
                             {{ asset('images/products/categories/'.$product->category_name.'/cover-2.jpg') }}
 
@@ -26,12 +22,8 @@
                                     <div class="pt-img">
                                         <picture>
                                             <img class="lazyload" src="
-                                            @if($product->images->count() > 0)
-                                                @foreach($product->images as $image)
-                                                    @if($image->cover_name == 'cover_1')
-                                                    {{ asset('images/products/'.$product->id.'/covers/cover-1/'.$image->image_url) }}
-                                                    @endif
-                                                @endforeach
+                                            @if($product->imageCoverOne()->first() != null)
+                                                {{ asset('images/products/'.$product->id.'/covers/cover-1/'.$product->imageCoverOne()->first()->image_url) }}
                                             @else
                                                 {{ asset('images/products/categories/'.$product->category_name.'/cover-1.jpg') }}
 
