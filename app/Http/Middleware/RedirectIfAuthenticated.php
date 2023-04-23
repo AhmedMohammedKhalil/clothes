@@ -26,6 +26,9 @@ class RedirectIfAuthenticated
         if ($guard == "user" && Auth::guard($guard)->check()) {
             return redirect('user/profile');
         }
+        if ($guard == "company" && Auth::guard($guard)->check()) {
+            return redirect('company/profile');
+        }
         if (Auth::guard($guard)->check()) {
             return redirect()->route('home');
         }

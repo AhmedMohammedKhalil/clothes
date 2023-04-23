@@ -84,19 +84,20 @@ class Product extends Model
     }
 
     public function getCategoryNameAttribute() {
-        $categoryName = $this->category()->first()->name;
-        $name = match($categoryName) {
+        $categoryName = (string) $this->category()->first()->name;
+       // dd($categoryName);
+        $name = (string) match($categoryName) {
             'قمصان' => 'shirts',
             'شورتات' => 'shorts',
-            'بناطيل' => 'trousers',
-            'سترات' => 'jackets',
-            'معاطف' => 'coats',
-            'بلوزات' => 'sweaters',
-            'فساتين' => 'dresses',
+            'بنطالونات' => 'trousers',
+            'السترات' => 'jackets',
+            'المعاطف' => 'coats',
+            'البلوزات' => 'sweaters',
+            'الفساتين' => 'dresses',
             'جلاليب' => 'glalib',
             'عبايات' => 'abayat',
             'اسدال' => 'esdal',
-            'تيشرت' => 'tshirt',
+            'تيشيرت' => 'tshirt',
             'سويت شيرت' => 'sweatshirt'
         };
         return $name;

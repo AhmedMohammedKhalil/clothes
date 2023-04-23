@@ -4,15 +4,15 @@
         @if($product->imageCoverOne()->image_url != null)
             <div><img src="{{ asset('images/products/'.$product->id.'/covers/cover-1/'.$product->imageCoverOne()->image_url) }}" alt=""></div>
         @else
-            {{-- <div><img src="{{ asset('images/products/categories/'.$product->category_name.'/cover-1.jpg')}}"></div> --}}
-            <div><img src="{{ asset('images/products/covers/cover_1.jpg') }}" alt=""></div>
+            <div><img src="{{ asset('images/products/categories/'.$product->category_name.'/cover-1.jpg')}}"></div>
+            {{-- <div><img src="{{ asset('images/products/covers/cover_1.jpg') }}" alt=""></div> --}}
         @endif
 
         @if($product->imageCoverTwo()->image_url != null)
             <div><img src="{{ asset('images/products/'.$product->id.'/covers/cover-2/'.$product->imageCoverTwo()->image_url) }}" alt=""></div>
         @else
-            {{-- <div><img src="{{ asset('images/products/categories/'.$product->category_name.'/cover-2.jpg')}}"></div> --}}
-            <div><img src="{{ asset('images/products/covers/cover_2.jpg') }}" alt=""></div>
+            <div><img src="{{ asset('images/products/categories/'.$product->category_name.'/cover-2.jpg')}}"></div>
+            {{-- <div><img src="{{ asset('images/products/covers/cover_2.jpg') }}" alt=""></div> --}}
         @endif
 
         @if($product->imageNotCovers() != null)
@@ -20,10 +20,10 @@
                 <div><img src="{{ asset('images/products/'.$product->id.'/imgs/'.$image->id.'/'.$image->image_url) }}" alt=""></div>
             @endforeach
         @else
-            {{-- <div><img src="{{ asset('images/products/categories/'.$product->category_name.'/image.jpg')}}"></div> --}}
-            <div><img src="{{ asset('images/products/imgs/image1.jpg') }}" alt=""></div>
+            <div><img src="{{ asset('images/products/categories/'.$product->category_name.'/image.jpg')}}"></div>
+            {{-- <div><img src="{{ asset('images/products/imgs/image1.jpg') }}" alt=""></div>
             <div><img src="{{ asset('images/products/imgs/image2.jpg') }}" alt=""></div>
-            <div><img src="{{ asset('images/products/imgs/image3.jpg') }}" alt=""></div>
+            <div><img src="{{ asset('images/products/imgs/image3.jpg') }}" alt=""></div> --}}
 
         @endif
     </div>
@@ -37,8 +37,8 @@
                             @if($product->imageCoverOne()->image_url != null)
                                 <img class="zoom-product" src='{{ asset('images/products/'.$product->id.'/covers/cover-1/'.$product->imageCoverOne()->image_url) }}' data-zoom-image="{{ asset('images/products/'.$product->id.'/covers/cover-1/'.$image->image_url) }}" alt="">
                             @else
-                                {{--<img class="zoom-product" src="{{ asset('images/products/categories/'.$product->category_name.'/cover-1.jpg')}}" data-zoom-image="{{ asset('images/products/categories/'.$product->category_name.'/cover-1.jpg')}}"> --}}
-                                <img class="zoom-product" src='{{ asset('images/products/covers/cover_1.jpg') }}' data-zoom-image="{{ asset('images/products/covers/cover_1.jpg') }}" alt="">
+                                <img class="zoom-product" src="{{ asset('images/products/categories/'.$product->category_name.'/cover-1.jpg')}}" data-zoom-image="{{ asset('images/products/categories/'.$product->category_name.'/cover-1.jpg')}}">
+                                {{-- <img class="zoom-product" src='{{ asset('images/products/covers/cover_1.jpg') }}' data-zoom-image="{{ asset('images/products/covers/cover_1.jpg') }}" alt=""> --}}
                             @endif
                             <button class="pt-btn-zoom js-btnzoom-slider">
                             <svg>
@@ -52,15 +52,15 @@
                             @if($product->imageCoverOne()->image_url != null)
                                 <li><a class="zoomGalleryActive" href="#" data-image="{{ asset('images/products/'.$product->id.'/covers/cover-1/'.$product->imageCoverOne()->image_url) }}" data-zoom-image="{{ asset('images/products/'.$product->id.'/covers/cover-1/'.$product->imageCoverOne()->image_url) }}"><img src="{{ asset('images/products/'.$product->id.'/covers/cover-1/'.$product->imageCoverOne()->image_url) }}" alt=""></a></li>
                             @else
-                                {{-- <li><a class="zoomGalleryActive" href="#" data-image="{{ asset('images/products/categories/'.$product->category_name.'/cover-1.jpg')}}" data-zoom-image="{{ asset('images/products/categories/'.$product->category_name.'/cover-1.jpg')}}"><img src="{{ asset('images/products/categories/'.$product->category_name.'/cover-1.jpg')}}" alt=""></a></li> --}}
+                                <li><a class="zoomGalleryActive" href="#" data-image="{{ asset('images/products/categories/'.$product->category_name.'/cover-1.jpg')}}" data-zoom-image="{{ asset('images/products/categories/'.$product->category_name.'/cover-1.jpg')}}"><img src="{{ asset('images/products/categories/'.$product->category_name.'/cover-1.jpg')}}" alt=""></a></li>
 
-                                <li><a class="zoomGalleryActive" href="#" data-image="{{ asset('images/products/covers/cover_1.jpg') }}" data-zoom-image="{{ asset('images/products/covers/cover_1.jpg') }}"><img src="{{ asset('images/products/covers/cover_1.jpg') }}" alt=""></a></li>
+                                {{-- <li><a class="zoomGalleryActive" href="#" data-image="{{ asset('images/products/covers/cover_1.jpg') }}" data-zoom-image="{{ asset('images/products/covers/cover_1.jpg') }}"><img src="{{ asset('images/products/covers/cover_1.jpg') }}" alt=""></a></li> --}}
                             @endif
                             @if($product->imageCoverTwo()->image_url != null)
                                 <li><a href="#" data-image="{{ asset('images/products/'.$product->id.'/covers/cover-2/'.$product->imageCoverTwo()->image_url) }}" data-zoom-image="{{ asset('images/products/'.$product->id.'/covers/cover-2/'.$product->imageCoverTwo()->image_url) }}"><img src="{{ asset('images/products/'.$product->id.'/covers/cover-2/'.$product->imageCoverTwo()->image_url) }}" alt=""></a></li>
                             @else
-                                {{-- <li><a class="zoomGalleryActive" href="#" data-image="{{ asset('images/products/categories/'.$product->category_name.'/cover-2.jpg')}}" data-zoom-image="{{ asset('images/products/categories/'.$product->category_name.'/cover-2.jpg')}}"><img src="{{ asset('images/products/categories/'.$product->category_name.'/cover-2.jpg')}}" alt=""></a></li> --}}
-                                <li><a href="#" data-image="{{ asset('images/products/covers/cover_2.jpg') }}" data-zoom-image="{{ asset('images/products/covers/cover_2.jpg') }}"><img src="{{ asset('images/products/covers/cover_2.jpg') }}" alt=""></a></li>
+                                <li><a class="zoomGalleryActive" href="#" data-image="{{ asset('images/products/categories/'.$product->category_name.'/cover-2.jpg')}}" data-zoom-image="{{ asset('images/products/categories/'.$product->category_name.'/cover-2.jpg')}}"><img src="{{ asset('images/products/categories/'.$product->category_name.'/cover-2.jpg')}}" alt=""></a></li>
+                                {{-- <li><a href="#" data-image="{{ asset('images/products/covers/cover_2.jpg') }}" data-zoom-image="{{ asset('images/products/covers/cover_2.jpg') }}"><img src="{{ asset('images/products/covers/cover_2.jpg') }}" alt=""></a></li> --}}
                             @endif
 
                             @if($product->imageNotCovers() != null)
@@ -68,10 +68,10 @@
                                     <li><a href="#" data-image="{{ asset('images/products/'.$product->id.'/imgs/'.$image->id.'/'.$image->image_url) }}" data-zoom-image="{{ asset('images/products/'.$product->id.'/imgs/'.$image->id.'/'.$image->image_url) }}"><img src="{{ asset('images/products/'.$product->id.'/imgs/'.$image->id.'/'.$image->image_url) }}" alt=""></a></li>
                                 @endforeach
                             @else
-                                {{-- <li><a class="zoomGalleryActive" href="#" data-image="{{ asset('images/products/categories/'.$product->category_name.'/image.jpg')}}" data-zoom-image="{{ asset('images/products/categories/'.$product->category_name.'/image.jpg')}}"><img src="{{ asset('images/products/categories/'.$product->category_name.'/image.jpg')}}" alt=""></a></li> --}}
-                                <li><a href="#" data-image="{{ asset('images/products/imgs/image1.jpg') }}" data-zoom-image="{{ asset('images/products/imgs/image1.jpg') }}"><img src="{{ asset('images/products/imgs/image1.jpg') }}" alt=""></a></li>
+                                <li><a class="zoomGalleryActive" href="#" data-image="{{ asset('images/products/categories/'.$product->category_name.'/image.jpg')}}" data-zoom-image="{{ asset('images/products/categories/'.$product->category_name.'/image.jpg')}}"><img src="{{ asset('images/products/categories/'.$product->category_name.'/image.jpg')}}" alt=""></a></li>
+                                {{-- <li><a href="#" data-image="{{ asset('images/products/imgs/image1.jpg') }}" data-zoom-image="{{ asset('images/products/imgs/image1.jpg') }}"><img src="{{ asset('images/products/imgs/image1.jpg') }}" alt=""></a></li>
                                 <li><a href="#" data-image="{{ asset('images/products/imgs/image2.jpg') }}" data-zoom-image="{{ asset('images/products/imgs/image2.jpg') }}"><img src="{{ asset('images/products/imgs/image2.jpg') }}" alt=""></a></li>
-                                <li><a href="#" data-image="{{ asset('images/products/imgs/image3.jpg') }}" data-zoom-image="{{ asset('images/products/imgs/image3.jpg') }}"><img src="{{ asset('images/products/imgs/image3.jpg') }}" alt=""></a></li>
+                                <li><a href="#" data-image="{{ asset('images/products/imgs/image3.jpg') }}" data-zoom-image="{{ asset('images/products/imgs/image3.jpg') }}"><img src="{{ asset('images/products/imgs/image3.jpg') }}" alt=""></a></li> --}}
 
                             @endif
                         </ul>

@@ -42,5 +42,25 @@ class CategorySeeder extends Seeder
             'name' => 'الفساتين',
             'image'=>'0d88d22a3a637c94f5703a3dbd7e4c34cabda9ac.jpg'
         ]);
+        DB::table('categories')->insert([
+            'name' => 'جلاليب',
+            'image'=>''
+        ]);
+        DB::table('categories')->insert([
+            'name' => 'عبايات',
+            'image'=>''
+        ]);
+        DB::table('categories')->insert([
+            'name' => 'اسدال',
+            'image'=>''
+        ]);
+        DB::table('categories')->insert([
+            'name' => 'تيشيرت',
+            'image'=>''
+        ]);
+        DB::table('categories')->insert([
+            'name' => 'سويت شيرت',
+            'image'=>''
+        ]);
     }
 }
