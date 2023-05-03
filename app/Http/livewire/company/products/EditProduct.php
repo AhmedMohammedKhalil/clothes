@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\File;
 class EditProduct extends Component
 {
     use WithFileUploads;
-    public $product_id,$name,$price,$offer,$gender_id,$material_id,$size_id,$category_id,$details,$color,$image1,$image2,$image_opt=1,$images=[];
+    public $product_id,$name,$price,$offer,$gender_id,$material_id,$size_id,$category_id,$details,$color,$image_opt=1,$images=[];
     public $company_id,$materials,$sizes,$genders,$categories;
 
 
@@ -74,25 +74,11 @@ class EditProduct extends Component
         );
     }
 
-    public function updatedImage1()
-    {
-            $validateddata = $this->validate(
-                ['image1' => ['required','image','mimes:jpeg,jpg,png','max:2048']]
-            );
-    }
-
-    public function updatedImage2()
-    {
-            $validateddata = $this->validate(
-                ['image2' => ['required','image','mimes:jpeg,jpg,png','max:2048']]
-            );
-    }
-
 
     public function updatedImages()
     {
             $validateddata = $this->validate(
-                ['images.*' => ['image','mimes:jpeg,jpg,png','max:2048']],
+                ['images.*' => ['image','mimes:jpeg,jpg,png','max:2048','required']],
                 ['image_opt' => ['gt:0']]
             );
     }
@@ -107,47 +93,8 @@ class EditProduct extends Component
         Product::whereId($this->product_id)->update($validatedata);
         if(!file_exists(public_path('images/products/'.$this->product_id))) {
             mkdir(public_path('images/products/'.$this->product_id));
-            mkdir(public_path('images/products/'.$this->product_id.'/covers/'));
             mkdir(public_path('images/products/'.$this->product_id.'/imgs/'));
         }
-        if($this->image1) {
-            $imagename1 = $this->image1->getClientOriginalName();
-                Image::updateOrCreate(
-                    ['product_id' => $this->product_id , 'cover_name' => 'cover_1' ],
-                    ['image_url' => $imagename1]
-                );
-
-
-            $path = 'images/products/'.$this->product_id.'/covers/cover-1/';
-
-            $dir = public_path($path);
-            if(file_exists($dir))
-                File::deleteDirectory($dir);
-            else {
-                mkdir($dir);
-            }
-            $this->image1->storeAs($path,$imagename1);
-        }
-        if($this->image2) {
-            $imagename2 = $this->image2->getClientOriginalName();
-            Image::updateOrCreate(
-                ['product_id' => $this->product_id , 'cover_name' => 'cover_2' ],
-                ['image_url' => $imagename2]
-            );
-
-            $path = 'images/products/'.$this->product_id.'/covers/cover-2/';
-            $dir = public_path($path);
-            if(file_exists($dir))
-                File::deleteDirectory($dir);
-            else {
-                mkdir($dir);
-            }
-            $this->image2->storeAs($path,$imagename2);
-
-        }
-
-
-
         if(count($this->images)>0) {
             $path = 'images/products/'.$this->product_id.'/imgs/';
             $dir = public_path($path);

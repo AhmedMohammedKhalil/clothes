@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\File;
 class AddProduct extends Component
 {
     use WithFileUploads;
-    public $name,$price,$offer,$gender_id,$material_id,$size_id,$category_id,$details,$color,$image1,$image2,$images=[];
+    public $name,$price,$offer,$gender_id,$material_id,$size_id,$category_id,$details,$color,$images=[];
     public $company_id,$materials,$sizes,$genders,$categories;
 
     protected $rules = [
@@ -55,25 +55,10 @@ class AddProduct extends Component
         );
     }
 
-    public function updatedImage1()
-    {
-            $validateddata = $this->validate(
-                ['image1' => ['required','image','mimes:jpeg,jpg,png','max:2048']]
-            );
-    }
-
-    public function updatedImage2()
-    {
-            $validateddata = $this->validate(
-                ['image2' => ['required','image','mimes:jpeg,jpg,png','max:2048']]
-            );
-    }
-
-
     public function updatedImages()
     {
             $validateddata = $this->validate(
-                ['images.*' => ['image','mimes:jpeg,jpg,png','max:2048']]
+                ['images.*' => ['image','mimes:jpeg,jpg,png','max:2048','required']]
             );
     }
 
@@ -86,15 +71,10 @@ class AddProduct extends Component
         $validatedata = $this->validate();
         $validatedata = array_merge($validatedata,['offer' => $this->offer]);
 
-        if(!$this->image1 || !$this->image2) {
-            $this->updatedImage1();
-            $this->updatedImage2();
+        if(!$this->images ) {
+            $this->updatedImages();
         }
         $product = Product::create($validatedata);
-        $imagename1 = $this->image1->getClientOriginalName();
-        $imagename2 = $this->image2->getClientOriginalName();
-        Image::Create(['image_url' => $imagename1,'cover_name' => 'cover_1','product_id' => $product->id]);
-        Image::Create(['image_url' => $imagename2,'cover_name' => 'cover_2','product_id' => $product->id]);
         $path = 'images/products/'.$product->id;
         $dir = public_path($path);
         if(file_exists($dir))
@@ -102,13 +82,8 @@ class AddProduct extends Component
         else {
             mkdir($dir);
         }
-        mkdir($dir.'/covers');
-        mkdir($dir.'/covers/cover-1');
-        mkdir($dir.'/covers/cover-2');
         mkdir($dir.'/imgs');
-        $this->image1->storeAs($path.'/covers/cover-1',$imagename1);
-        $this->image2->storeAs($path.'/covers/cover-2',$imagename2);
-
+        
         if(count($this->images)>0) {
 
             foreach ($this->images as $image) {

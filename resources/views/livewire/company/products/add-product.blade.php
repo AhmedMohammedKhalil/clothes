@@ -76,21 +76,10 @@
         @error('color') <span class="text-danger error">{{ $message }}</span>@enderror
     </div>
 
-    <div class="form-group">
-        <label for="image1">الصورة الاولى</label>
-        <input type="file" wire:model='image1' id="image1" class="form-control" placeholder="">
-        @error('image1') <span class="text-danger error">{{ $message }}</span>@enderror
-    </div>
 
     <div class="form-group">
-        <label for="image2">الصورة الثانية</label>
-        <input type="file" wire:model='image2' id="image2" class="form-control" placeholder="">
-        @error('image1') <span class="text-danger error">{{ $message }}</span>@enderror
-    </div>
-
-    <div class="form-group">
-        <label for="images">صور اخرى</label>
-        <input type="file" wire:model='images' id="images" class="form-control" placeholder="" multiple>
+        <label for="images">صور </label>
+        <input type="file" wire:model='images' id="images" class="form-control" placeholder="" multiple required>
         @error('images.*') <span class="text-danger error">{{ $message }}</span>@enderror
     </div>
 
