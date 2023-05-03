@@ -142,9 +142,12 @@ class Filter extends Component
     }
 
     public function makeFilter($type,$id,$name) {
-        $this->filters[$type][] = $name;
-        $this->filtering();
+        if(!in_array($name,$this->filters[$type])) {
+            $this->filters[$type][] = $name;
+            $this->filtering();
+        }
     }
+
 
 
     public function deleteFilter($type,$name) {

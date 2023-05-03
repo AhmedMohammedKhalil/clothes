@@ -1,6 +1,43 @@
 @extends('layouts.app')
 @push('css')
 <style>
+
+        .pt-filter-list, .pt-list-row{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .pt-list-row li:first-child a {
+            padding-top: 6px;
+        }
+
+        .pt-filter-list li, .pt-list-row li{
+            margin-top: 10px;
+            padding: 0 5px;
+            color: black;
+            border-radius: 20px
+        }
+
+        .pt-filter-list li a, .pt-list-row li a{
+            color: black !important
+        }
+
+        .pt-filter-list li:hover, .pt-list-row li:hover{
+            background-color: lightgray;
+        }
+
+        .pt-filter-list li:hover a, .pt-list-row li:hover a{
+            color: black;
+        }
+
+        .pt-filter-list li .icon {
+            right: 10px !important;
+        }
+
+        .pt-filter-list li:hover .icon {
+            color: red !important
+        }
     .pt-product .pt-description .pt-title a {
         font-size: 18px;
         font-weight: bold !important;
@@ -33,6 +70,8 @@
     .pt-col {
         flex:auto
     }
+
+
 
 </style>
 @endpush
@@ -74,63 +113,7 @@
                         </div>
                         <div class="col-md-12 col-lg-9 col-xl-9">
                             <div class="content-indent">
-                                <div class="pt-filters-options">
-                                    <div class="pt-btn-toggle">
-                                        <a href="#">
-                                        <span class="pt-icon">
-                                            <svg>
-                                                <use xlink:href="#icon-filter"></use>
-                                            </svg>
-                                        </span>
-                                        <span class="pt-text">
-                                            التصفبة
-                                        </span>
-                                        </a>
-                                    </div>
-                                    <div class="pt-quantity">
-                                        <a href="#" class="pt-col-one" data-value="pt-col-one">
-                                        <span class="icon-listing-one">
-                                            <span></span>
-                                            <span></span>
-                                        </span>
-                                        </a>
-                                        <a href="#" class="pt-col-two" data-value="pt-col-two">
-                                        <span class="icon-listing-two">
-                                            <span></span>
-                                            <span></span>
-                                        </span>
-                                        </a>
-                                        <a href="#" class="pt-col-three" data-value="pt-col-three">
-                                        <span class="icon-listing-three">
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                        </span>
-                                        </a>
-                                        <a href="#" class="pt-col-four" data-value="pt-col-four">
-                                        <span class="icon-listing-four">
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                        </span>
-                                        </a>
-                                        <a href="#" class="pt-col-six" data-value="pt-col-six">
-                                        <span class="icon-listing-six">
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                        </span>
-                                        </a>
-                                    </div>
-                                    <a href="#" class="pt-grid-switch">
-                                    <span></span><span></span>
-                                    </a>
-                                </div>
-                            @livewire('results',['page_type' => $page_type,'content' => $content])
+                                @livewire('results',['page_type' => $page_type,'content' => $content])
                             </div>
                         </div>
                     </div>

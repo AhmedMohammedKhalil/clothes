@@ -191,7 +191,7 @@
         </span>
         </h3>
         <div class="pt-collapse-content">
-            <ul class="pt-list-row">
+            <ul class="pt-list-row" style="flex-direction:column">
                 <li><a href="javascript:void(0)" wire:click='makeFilter("prices",0,"اقل من 5 دينار")'>اقل من 5 دينار</a></li>
                 <li><a href="javascript:void(0)" wire:click='makeFilter("prices",1,"من 5 دينار الى 10 دينار")'>من 5 دينار ال 10 دينار</a></li>
                 <li><a href="javascript:void(0)" wire:click='makeFilter("prices",2,"من 10 دينار الى 15 دينار")'>من 10 دينار الى 15 دينار</a></li>
