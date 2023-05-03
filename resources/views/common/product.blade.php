@@ -5,7 +5,7 @@
             <div class="col-6 hidden-xs">
                 <div id="product{{ $product->id }}" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
-                        @if($product->imageNotCovers != null)
+                        @if($product->imageNotCovers() != null)
                             @foreach($product->imageNotCovers() as $image)
                                 <button type="button" data-bs-target="#product{{ $product->id }}" data-bs-slide-to="{{ $loop->index }}" class="@if($loop->index == 0) active @endif" aria-current="@if($loop->index == 0) true @endif" aria-label="@if($loop->index == 0) slide 1 @endif"></button>
                             @endforeach
@@ -16,7 +16,7 @@
                         @endif
                     </div>
                     <div class="carousel-inner">
-                        @if($product->imageNotCovers != null)
+                        @if($product->imageNotCovers() != null)
                             @foreach($product->imageNotCovers() as $image)
                                 <div class="carousel-item @if($loop->index == 0) active @endif">
                                     <img src="{{ asset('images/products/'.$product->id.'/imgs/'.$image->id.'/'.$image->image_url) }}" class="d-block w-100" alt="#">

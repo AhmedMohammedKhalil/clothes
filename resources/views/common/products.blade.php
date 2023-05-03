@@ -12,7 +12,7 @@
                         <div id="product{{ $p->id }}-recommendation" class="carousel slide" data-bs-ride="carousel">
 
                             <div class="carousel-inner">
-                                @if($p->imageNotCovers != null)
+                                @if($p->imageNotCovers() != null)
                                     @foreach($p->imageNotCovers() as $image)
                                         <div class="carousel-item @if($loop->index == 0) active @endif">
                                             <img src="{{ asset('images/products/'.$p->id.'/imgs/'.$image->id.'/'.$image->image_url) }}" class="d-block w-100" alt="#">
@@ -88,7 +88,7 @@
                         <div class="col-6 hidden-xs">
                             <div id="modalproduct{{ $p->id }}" class="carousel slide" data-bs-ride="carousel">
                                 <div class="carousel-indicators">
-                                    @if($p->imageNotCovers != null)
+                                    @if($p->imageNotCovers() != null)
                                         @foreach($p->imageNotCovers() as $image)
                                             <button type="button" data-bs-target="#modalproduct{{ $p->id }}" data-bs-slide-to="{{ $loop->index }}" class="@if($loop->index == 0) active @endif" aria-current="@if($loop->index == 0) true @endif" aria-label="@if($loop->index == 0) slide 1 @endif"></button>
                                         @endforeach
@@ -101,7 +101,7 @@
 
                                 </div>
                                 <div class="carousel-inner">
-                                    @if($p->imageNotCovers != null)
+                                    @if($p->imageNotCovers() != null)
                                         @foreach($p->imageNotCovers() as $image)
                                             <div class="carousel-item @if($loop->index == 0) active @endif">
                                                 <img src="{{ asset('images/products/'.$p->id.'/imgs/'.$image->id.'/'.$image->image_url) }}" class="d-block w-100" alt="#">
