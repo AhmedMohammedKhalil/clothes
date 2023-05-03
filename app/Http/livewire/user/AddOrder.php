@@ -12,6 +12,7 @@ class AddOrder extends Component
     public $product,$qty, $user, $cart,$price;
     public function mount($p_id) {
         $this->product = Product::whereId($p_id)->first();
+        $this->price = $this->product->price;
         $this->qty = 1;
         $this->user = User::whereId(auth('user')->user()->id)->first();
         $this->cart = $this->user->openCart();

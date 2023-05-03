@@ -10,7 +10,7 @@
 
     <title>{{ config('app.name', 'Clothes Recomendation') }}</title>
 
-    <link rel="shortcut icon" href="{{ asset('favicon/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('favicon/favicon (1).ico') }}">
     <meta name="format-detection" content="telephone=no">
 
 
@@ -22,11 +22,39 @@
 
     <!-- Scripts -->
 
-    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css')}}">
     <link rel="stylesheet" href="{{ asset('css/rtl.css')}}">
     @livewireStyles
     @stack('css')
+    <style>
+
+
+        .carousel-control-prev-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+        }
+
+        .carousel-control-next-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+        }
+
+        .carousel-indicators [data-bs-target] {
+            height: 10px !important;
+            width: 10px !important;
+            border: 0px !important;
+            background: black !important;
+            border-radius: 10px !important;
+        }
+
+        .pt-product .pt-image-box img {
+            width: 100%;
+            height: 300px;
+        }
+
+        .pt-product-single-info {
+            text-align: right !important
+        }
+    </style>
 
 </head>
 
@@ -36,8 +64,8 @@
         <nav class="panel-menu mobile-main-menu">
             <ul>
                 <li><a href="{{ route('home') }}">الرئيسية</a></li>
-                <li><a href="index-rtl.html">ملابس الرجال</a></li>
-                <li><a href="index-rtl.html">ملابس النساء</a></li>
+                <li><a href="{{ route('shop',['page_type' => 'gender', 'content' => 'رجالى']) }}">ملابس الرجال</a></li>
+                <li><a href="{{ route('shop',['page_type' => 'gender', 'content' => 'نسائى']) }}">ملابس النساء</a></li>
                 <li><a href="{{ route('aboutUs') }}">من نحن</a></li>
             </ul>
             <div class="mm-navbtn-names">
@@ -63,7 +91,7 @@
                         <div class="pt-logo pt-logo-alignment">
                             <a href="{{ route('home') }}" itemprop="url">
                                 {{-- <h2 class="pt-title">Clothes</h2> --}}
-                                <img src="{{ asset('images/logo.jpg') }}" alt="">
+                                <img src="{{ asset('images/logo.png') }}" alt="">
                             </a>
                         </div>
                         <!-- /mobile logo -->
@@ -85,7 +113,7 @@
                     <div class="pt-logo pt-logo-alignment">
                         <a href="{{ route('home') }}" itemprop="url">
                             {{-- <h2 class="pt-title">Clothes</h2> --}}
-                            <img src="{{ asset('images/logo.jpg') }}" alt="">
+                            <img src="{{ asset('images/logo.png') }}" alt="">
                         </a>
                     </div>
                     <!-- /logo -->
@@ -290,7 +318,7 @@
                     <div class="pt-logo pt-logo-alignment d-none d-lg-block">
                         <a href="{{ route('home') }}" itemprop="url">
                             {{-- <h2 class="pt-title">Clothes</h2> --}}
-                            <img src="{{ asset('images/logo.jpg') }}" alt="">
+                            <img src="{{ asset('images/logo.png') }}" alt="">
 
                         </a>
                     </div>
@@ -300,7 +328,7 @@
                         <div class="pt-logo pt-logo-alignment">
                             <a href="{{ route('home') }}" itemprop="url">
                                 {{-- <h2 class="pt-title">Clothes</h2> --}}
-                                <img src="{{ asset('images/logo.jpg') }}" alt="">
+                                <img src="{{ asset('images/logo.png') }}" alt="">
 
                             </a>
                         </div>
@@ -353,11 +381,8 @@
 
 
     @include('layouts.svg')
-    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script>
-        window.jQuery || document.write('<script src="external/jquery/jquery.min.js"><\/script>')
-    </script>
     <script async src="{{ asset('js/bundle.js') }}"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
     <script src="{{ asset('js/jquery.counterup.min.js') }}"></script>

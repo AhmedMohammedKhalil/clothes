@@ -10,7 +10,7 @@
 </div>
 @endsection
 @section('content')
-<div class="container-indent" style="min-height: calc(100vh - 266px);height:0">
+<div class="container-indent" style="min-height: calc(100vh - 266px)">
     <div class="container">
         <h1 class="pt-title-subpages noborder">إنشاء حساب المستخدم</h1>
         <div class="row justify-content-center">
