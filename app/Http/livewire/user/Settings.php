@@ -63,7 +63,7 @@ class Settings extends Component
             $path = 'images/users/'.$this->user_id;
             $dir = public_path($path);
             if(file_exists($dir))
-                File::deleteDirectories($dir);
+                File::deleteDirectory($dir);
             else
                 mkdir($dir);
             $this->image->storeAs($path,$imagename);

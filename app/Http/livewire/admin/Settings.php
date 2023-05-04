@@ -57,7 +57,7 @@ class Settings extends Component
             $path = '/images/admins/'.$this->admin_id;
             $dir = public_path($path);
             if(file_exists($dir))
-                File::deleteDirectories($dir);
+                File::deleteDirectory($dir);
             else
                 mkdir($dir);
 
