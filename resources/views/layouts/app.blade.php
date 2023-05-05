@@ -25,6 +25,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css')}}">
     <link rel="stylesheet" href="{{ asset('css/rtl.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/swiper-bundle.min.css')}}">
     @livewireStyles
     @stack('css')
     <style>
@@ -54,6 +55,15 @@
         .pt-product-single-info {
             text-align: right !important
         }
+
+        .modal-dialog {
+            width: 800px;
+        }
+
+        .modal-dialog .carousel {
+            width: 300px
+        }
+
     </style>
 
 </head>
@@ -64,8 +74,8 @@
         <nav class="panel-menu mobile-main-menu">
             <ul>
                 <li><a href="{{ route('home') }}">الرئيسية</a></li>
-                <li><a href="{{ route('shop',['page_type' => 'gender', 'content' => 'رجالى']) }}">ملابس الرجال</a></li>
-                <li><a href="{{ route('shop',['page_type' => 'gender', 'content' => 'نسائى']) }}">ملابس النساء</a></li>
+                <li><a href="{{ route('shop',['page_type' => 'gender', 'content' => 'رجالى']) }}">الرجال</a></li>
+                <li><a href="{{ route('shop',['page_type' => 'gender', 'content' => 'نسائى']) }}">النساء</a></li>
                 <li><a href="{{ route('aboutUs') }}">من نحن</a></li>
             </ul>
             <div class="mm-navbtn-names">
@@ -127,10 +137,10 @@
                                             <a href="{{ route('home') }}"><span>الرئيسية</span></a>
                                         </li>
                                         <li class="dropdown">
-                                            <a href="{{ route('shop',['page_type' => 'gender', 'content' => 'رجالى']) }}"><span>ملابس الرجال</span></a>
+                                            <a href="{{ route('shop',['page_type' => 'gender', 'content' => 'رجالى']) }}"><span>الرجال</span></a>
                                         </li>
                                         <li class="dropdown">
-                                            <a href="{{ route('shop',['page_type' => 'gender', 'content' => 'نسائى']) }}"><span>ملابس النساء</span></a>
+                                            <a href="{{ route('shop',['page_type' => 'gender', 'content' => 'نسائى']) }}"><span>النساء</span></a>
                                         </li>
                                         <li class="dropdown">
                                             <a href="{{ route('aboutUs') }}"><span>من نحن</span></a>
@@ -164,7 +174,7 @@
                         <div class="pt-desctop-parent-account pt-parent-box">
                             @if(!auth('admin')->check() && !auth('user')->check() && !auth('company')->check())
                             <div class="pt-account pt-dropdown-obj js-dropdown">
-                                <button class="pt-dropdown-toggle" data-tooltip="تسجيل الدخول" data-tposition="bottom">
+                                <button class="pt-dropdown-toggle" data-tooltip="تسجيل الدخول"  data-tposition="bottom">
                                     <svg width="24" height="24" viewBox="0 0 24 24">
                                         <use xlink:href="#icon-user"></use>
                                     </svg>
@@ -185,7 +195,7 @@
                                                             <use xlink:href="#icon-lock"></use>
                                                         </svg>
                                                     </i>
-                                                    <span class="pt-text">دخول الشركة</span>
+                                                    <span class="pt-text">الشركة</span>
                                                 </a>
                                             </li>
                                             <li><a href="{{ route('user.login') }}">
@@ -194,7 +204,7 @@
                                                             <use xlink:href="#icon-lock"></use>
                                                         </svg>
                                                     </i>
-                                                    <span class="pt-text">دخول المستخدم</span>
+                                                    <span class="pt-text">المستخدم</span>
                                                 </a>
                                             </li>
 
@@ -232,7 +242,7 @@
                                                     </li>
                                                     <li>
                                                         <a href="{{ route('admin.changePassword') }}">
-                                                            <span class="pt-text">تغيير كلمة السر</span>
+                                                            <span class="pt-text">تغيير كلمة المرور</span>
                                                         </a>
                                                     </li>
                                                     <li>
@@ -256,7 +266,7 @@
                                                 </li>
                                                 <li>
                                                     <a href="{{ route('company.changePassword') }}">
-                                                        <span class="pt-text">تغيير كلمة السر</span>
+                                                        <span class="pt-text">تغيير كلمة المرور</span>
                                                     </a>
                                                 </li>
                                                 <li>
@@ -281,7 +291,7 @@
                                                         </li>
                                                         <li>
                                                             <a href="{{ route('user.changePassword') }}">
-                                                                <span class="pt-text">تغيير كلمة السر</span>
+                                                                <span class="pt-text">تغيير كلمة المرور</span>
                                                             </a>
                                                         </li>
                                                         <li>
@@ -336,7 +346,7 @@
                     </div>
                     <div class="pt-stuck-parent-menu"></div>
                     <div class="pt-stuck-parent-search pt-parent-box" style="margin-left: 15px;"></div>
-                    <div class="pt-stuck-parent-account pt-parent-box d-block position-absolute" style="left:0px"></div>
+                    <div class="pt-stuck-parent-account pt-parent-box d-block position-absolute" style="left:10px"></div>
                 </div>
             </div>
         </div>
@@ -386,7 +396,8 @@
     <script async src="{{ asset('js/bundle.js') }}"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
     <script src="{{ asset('js/jquery.counterup.min.js') }}"></script>
-
+    <script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
     @livewireScripts
 
 

@@ -260,25 +260,53 @@
                     </div>
                     <div class="col-6">
                         <div class="pt-product-single-info">
-                            <h1 class="pt-title">{{ $product->name }}</h1>
-                            <div class="pt-price">
-                                @if($product->offer != 0)
-                                    <span class="old-price" style="font-size: 36px;margin:20px 0">{{ $product->price }} دينار</span> <br>
-                                    <span class="new-price">{{ $product->offer }} دينار</span>
-                                @else
-                                    <span class="new-price">{{ $product->price }} دينار</span>
-                                @endif
+                            <div class="">
+                                <table class="pt-table-shop-02">
+                                    <tbody>
+                                        <tr>
+                                            <td>إسم المنتج</td>
+                                            <td>{{ $product->name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>الشركة</td>
+                                            <td>{{ $product->company->name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>النوع</td>
+                                            <td>{{ $product->category->name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>الخامة</td>
+                                            <td>{{ $product->material->name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>المقاس</td>
+                                            <td>{{ $product->size->name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>اللون</td>
+                                            <td>{{ $product->color }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>تفاصيل</td>
+                                            <td>{!! nl2br($product->details) !!}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>السعر</td>
+                                            <td>
+                                                @if($product->offer != 0)
+                                                    <span class="old-price" style="padding-left: 10px;text-decoration: line-through 2px #305f9c;">{{ $product->price }} دينار</span>
+                                                    <span class="new-price">{{ $product->offer }} دينار</span>
+                                                @else
+                                                    <span class="new-price">{{ $product->price }} دينار</span>
+                                                @endif
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                            <div class="pt-add-info">
-                                <ul>
-                                    <li>{{ $product->gender->name }}</li>
-                                    <li><span style="width: 100px;display:inline-block;color:black">الشركة </span>{{ $product->company->name }}</li>
-                                    <li><span style="width: 100px;display:inline-block;color:black">النوع </span>{{ $product->category->name }}</li>
-                                    <li><span style="width: 100px;display:inline-block;color:black">الخامة </span>{{ $product->material->name }}</li>
-                                    <li><span style="width: 100px;display:inline-block;color:black">المقاس </span>{{ $product->size->name }}</li>
-                                    <li><span style="width: 100px;display:inline-block;color:black">اللون </span>{{ $product->color }}</li>
-                                </ul>
-                            </div>
+
+
                         </div>
                     </div>
                 </div>

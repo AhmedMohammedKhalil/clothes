@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Gender;
 use App\Models\Category;
+use App\Models\Company;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
@@ -20,7 +21,22 @@ class HomeController extends Controller
     public function index()
     {
         $categories=Category::all();
-        return view('home',compact('categories'));
+        $companies = Company::all();
+        $pids = Product::query()
+        ->join('orders', 'orders.product_id', '=', 'products.id')
+        ->selectRaw('products.id, SUM(orders.qty) AS quantity_sold')
+        ->groupBy(['products.id']) // should group by primary key
+        ->orderByDesc('quantity_sold')
+        ->take(10) // 20 best-selling products
+        ->get();
+        $array = [];
+        foreach($pids as $pid){
+            $array[] = $pid['id'];
+        }
+
+        $products = Product::select('*')->whereIn('id',$array)->get();
+
+        return view('home',compact('categories','companies','products'));
     }
 
     public function aboutUs()
@@ -36,7 +52,9 @@ class HomeController extends Controller
 
         $page_type = $r->page_type;
         $content = $r->content;
-
+        if($r->page_type == 'company') {
+            $products = Company::where('name','like','%'.$content.'%')->first()->products;
+        }
         if($r->page_type == 'category') {
             $products = Category::where('name','like','%'.$content.'%')->first()->products;
         }

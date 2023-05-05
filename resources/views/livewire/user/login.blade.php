@@ -13,8 +13,8 @@
     </div>
 
     <div class="form-group">
-        <label for="password">كلمة السر</label>
-        <input type="password" wire:model.lazy='password' id="password" class="form-control" placeholder="كلمة السر">
+        <label for="password">كلمة المرور</label>
+        <input type="password" wire:model.lazy='password' id="password" class="form-control" placeholder="كلمة المرور">
         @error('password') <span class="text-danger error">{{ $message }}</span>@enderror
     </div>
     <div class="row-btn">

@@ -14,7 +14,7 @@
     <div class="container">
         <h1 class="pt-title-subpages noborder">إنشاء حساب المستخدم</h1>
         <div class="row justify-content-center">
-            <div class="col-md-6 col-lg-5 col-xl-4" ">
+            <div class="col-md-6 col-lg-5 col-xl-4">
                 <livewire:user.register />
             </div>
         </div>

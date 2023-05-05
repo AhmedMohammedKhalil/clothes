@@ -63,7 +63,7 @@ class CompanyController extends Controller
     }
 
     public function changePassword() {
-        return view('companies.changePassword',['page_name' => 'تغيير كلمة السر']);
+        return view('companies.changePassword',['page_name' => 'تغيير كلمة المرور']);
     }
 
 

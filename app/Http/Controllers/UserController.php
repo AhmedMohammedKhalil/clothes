@@ -33,7 +33,7 @@ class UserController extends Controller
     }
 
     public function changePassword() {
-        return view('users.changePassword',['page_name' => 'تعديل كلمة السر']);
+        return view('users.changePassword',['page_name' => 'تعديل كلمة المرور']);
     }
 
     public function showCart() {

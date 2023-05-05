@@ -83,52 +83,5 @@ class Product extends Model
         return $total;
     }
 
-    public function getCategoryNameAttribute() {
-        $categoryName = (string) $this->category()->first()->name;
-       // dd($categoryName);
-        if($categoryName) {
-            switch($categoryName) {
-                case "قمصان" :
-                    return "shirts";
-
-                case "شورتات" :
-                    return  "shorts";
-
-                case "بنطالونات" :
-                    return  "trousers";
-
-                case "السترات" :
-                    return "jackets";
-
-                case "المعاطف":
-                    return "coats";
-
-                case "البلوزات":
-                    return "sweaters";
-
-                case "الفساتين":
-                    return "dresses";
-
-                case "جلاليب":
-                    return "glalib";
-
-                case "عبايات":
-                    return "abayat";
-
-                case "اسدال":
-                    return "esdal";
-
-                case "تيشيرت":
-                    return "tshirt";
-
-                case "سويت شيرت":
-                    return "sweatshirt";
-
-            }
-        }
-
-    }
-
-    Protected $appends = ['category_name'];
 
 }

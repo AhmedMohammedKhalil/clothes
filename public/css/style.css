@@ -5744,7 +5744,7 @@ button::-moz-focus-inner {
 }
 
 .mfp-close:before {
-    font-family: yanka;
+    font-family: cairo;
     font-size: 23px;
     line-height: 1;
     content: "\e908";
@@ -5803,7 +5803,7 @@ button.mfp-arrow:after {
 }
 
 button.mfp-arrow:before {
-    font-family: yanka;
+    font-family: cairo;
     font-size: 23px;
     line-height: 1;
     color: #d0d0d0;
@@ -6073,17 +6073,37 @@ screen and (max-height:300px) {
 }
 
 @font-face {
-    font-family: yanka;
+    font-family: cairo;
+    src: local("cairo"), url(../font-icons/fonts/Cairo/static/Cairo-ExtraLight.ttf);
+    src: local("cairo"), url(../font-icons/fonts/Cairo/static/Cairo-Light.ttf);
+    src: local("cairo"), url(../font-icons/fonts/Cairo/static/Cairo-Medium.ttf);
+    src: local("cairo"), url(../font-icons/fonts/Cairo/static/Cairo-Regular.ttf);
+    font-weight: 400px;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: cairo;
+    src: local("cairo"), url(../font-icons/fonts/Cairo/static/Cairo-Black.ttf);
+    src: local("cairo"), url(../font-icons/fonts/Cairo/static/Cairo-Bold.ttf);
+    src: local("cairo"), url(../font-icons/fonts/Cairo/static/Cairo-ExtraBold.ttf);
+    src: local("cairo"), url(../font-icons/fonts/Cairo/static/Cairo-SemiBold.ttf);
+    font-weight: 700;
+    font-style:normal
+
+}
+/* @font-face {
+    font-family: cairo;
     font-display: swap;
-    src: local("yanka"), url(../font-icons/fonts/yanka.eot?gdhhmd);
-    src: local("yanka"), url(../font-icons/fonts/yanka.eot?gdhhmd#iefix) format("embedded-opentype"), url(../font-icons/fonts/yanka.ttf?gdhhmd) format("truetype"), url(../font-icons/fonts/yanka.woff?gdhhmd) format("woff"), url(../font-icons/fonts/yanka.svg?gdhhmd#yanka) format("svg");
+    src: local("cairo"), url(../font-icons/fonts/cairo.eot?gdhhmd);
+    src: local("cairo"), url(../font-icons/fonts/cairo.eot?gdhhmd#iefix) format("embedded-opentype"), url(../font-icons/fonts/cairo.ttf?gdhhmd) format("truetype"), url(../font-icons/fonts/cairo.woff?gdhhmd) format("woff"), url(../font-icons/fonts/cairo.svg?gdhhmd#cairo) format("svg");
     font-weight: 400;
     font-style: normal
-}
+} */
 
 [class*=" icon-"],
 [class^=icon-] {
-    font-family: yanka !important;
+    font-family: cairo !important;
     speak: none;
     font-style: normal;
     font-weight: 400;
@@ -6140,7 +6160,7 @@ screen and (max-height:300px) {
 }
 
 body {
-    font-family: Poppins, sans-serif;
+    font-family: cairo, sans-serif;
     font-size: 18px;
     line-height: 28px;
     font-weight: 500;
@@ -6195,7 +6215,7 @@ h5,
 h6 {
     display: block;
     position: relative;
-    font-family: "Poppins", sans-serif;
+    font-family: "cairo", sans-serif;
     color: #333;
     margin-bottom: 0
 }
@@ -7120,7 +7140,7 @@ select:disabled.simple-control::-ms-expand {
 }
 
 .custom-select-01::after {
-    font-family: yanka;
+    font-family: cairo;
     font-size: 14px;
     line-height: 1;
     content: "\e903";
@@ -7193,7 +7213,7 @@ select:disabled.simple-control::-ms-expand {
 }
 
 .custom-select-02::after {
-    font-family: yanka;
+    font-family: cairo;
     font-size: 14px;
     line-height: 1;
     content: "\e903";
@@ -7794,7 +7814,7 @@ dl.pt-type-01 dd>:nth-child(1) {
 }
 
 .pt-accordeon .pt-accordeon-title:after {
-    font-family: yanka;
+    font-family: cairo;
     font-size: 15px;
     line-height: 1;
     position: absolute;
@@ -7963,7 +7983,7 @@ dl.pt-type-01 dd>:nth-child(1) {
 }
 
 .pt-blockquote:before {
-    font-family: yanka;
+    font-family: cairo;
     content: "\e900";
     display: inline-block;
     position: absolute;
@@ -8932,7 +8952,7 @@ header .pt-cart .pt-cart-layout .pt-cart-content .pt-cart-total-row {
 
 header .pt-cart .pt-cart-layout .pt-cart-content .pt-cart-total-row .pt-cart-total-title {
     color: #333;
-    font-family: "Poppins", sans-serif
+    font-family: "cairo", sans-serif
 }
 
 header .pt-cart .pt-cart-layout .pt-cart-content .pt-cart-total-row .pt-cart-total-price {
@@ -8996,7 +9016,7 @@ header .pt-cart .pt-cart-layout .pt-cart-content .pt-cart-btn .btn {
         border: 0;
         border-bottom: 1px solid #ebebeb;
         padding: 11px 12px 13px 0;
-        font-family: "Poppins", sans-serif;
+        font-family: "cairo", sans-serif;
         box-shadow: none;
         outline: 0;
         width: 100%;
@@ -9389,7 +9409,7 @@ header .pt-search-02 .search-form {
 }
 
 header .pt-search-02 .search-form .pt-search-input {
-    font-family: "Poppins", sans-serif;
+    font-family: "cairo", sans-serif;
     width: 100%;
     height: 44px;
     border: 1px solid #ebebeb;
@@ -11141,7 +11161,7 @@ html.ie header .pt-search .pt-dropdown-menu .pt-btn-search svg {
 }
 
 .pt-desctop-menu .pt-megamenu-submenu li a:not(:only-child):before {
-    font-family: yanka;
+    font-family: cairo;
     font-size: 14px;
     line-height: 1;
     content: "\e905";
@@ -11702,7 +11722,7 @@ body #pt-pageContent {
 }
 
 .panel-menu .mmpanel:not(#mm0) a:not(.mm-original-link) {
-    font-family: "Poppins", sans-serif
+    font-family: "cairo", sans-serif
 }
 
 .panel-menu .mmpanel .pt-badge {
@@ -11797,7 +11817,7 @@ body #pt-pageContent {
 }
 
 .panel-menu li.mm-close-parent .mm-close:before {
-    font-family: yanka;
+    font-family: cairo;
     font-size: 14px;
     line-height: 1;
     content: "\e909";
@@ -11825,7 +11845,7 @@ body #pt-pageContent {
 }
 
 .panel-menu .mm-prev-level:before {
-    font-family: yanka;
+    font-family: cairo;
     font-size: 16px;
     line-height: 1;
     content: "\e904";
@@ -11857,7 +11877,7 @@ body #pt-pageContent {
 }
 
 .panel-menu .mm-next-level:after {
-    font-family: yanka;
+    font-family: cairo;
     font-size: 16px;
     line-height: 1;
     content: "\e905";
@@ -12394,7 +12414,7 @@ html.ie .pt-stuck-nav .pt-header-row {
     top: 50%;
     margin-top: -8px;
     right: 15px;
-    font-family: yanka;
+    font-family: cairo;
     font-size: 14px;
     line-height: 1;
     content: "\e905";
@@ -12596,7 +12616,7 @@ html.ie .pt-stuck-nav .pt-header-row {
 }
 
 .pt-menu-categories .pt-dropdown-menu nav>ul .pt-megamenu-submenu li a:not(:only-child):before {
-    font-family: yanka;
+    font-family: cairo;
     font-size: 14px;
     line-height: 1;
     pointer-events: none;
@@ -20656,7 +20676,7 @@ body:not(.touch-device) .pt-hotspot .pt-btn:hover:after {
 }
 
 .pt-hotspot-content .pt-btn-close:before {
-    font-family: yanka;
+    font-family: cairo;
     font-size: 14px;
     line-height: 1;
     content: "\e909";
@@ -22149,7 +22169,7 @@ body:not(.touch-device) .pt-hotspot .pt-btn:hover:after {
 }
 
 .pt-slick-button .slick-arrow:before {
-    font-family: yanka;
+    font-family: cairo;
     font-size: 23px;
     line-height: 1;
     z-index: 2;
@@ -22200,7 +22220,7 @@ body:not(.touch-device) .pt-hotspot .pt-btn:hover:after {
 }
 
 .pt-slick-button-vertical .slick-arrow:before {
-    font-family: yanka;
+    font-family: cairo;
     font-size: 23px;
     line-height: 1;
     pointer-events: none;
@@ -22243,7 +22263,7 @@ body:not(.touch-device) .pt-hotspot .pt-btn:hover:after {
 }
 
 .arrow-location-02 .slick-arrow:before {
-    font-family: yanka;
+    font-family: cairo;
     font-size: 24px;
     line-height: 1;
     pointer-events: none;
@@ -22294,7 +22314,7 @@ body:not(.touch-device) .pt-hotspot .pt-btn:hover:after {
 }
 
 .arrow-location-03 .slick-arrow:before {
-    font-family: yanka;
+    font-family: cairo;
     font-size: 23px;
     line-height: 1;
     pointer-events: none;
@@ -22360,7 +22380,7 @@ body:not(.touch-device) .pt-hotspot .pt-btn:hover:after {
 }
 
 .arrow-location-center .slick-arrow:before {
-    font-family: yanka;
+    font-family: cairo;
     font-size: 23px;
     line-height: 1;
     z-index: 2;
@@ -22426,7 +22446,7 @@ body:not(.touch-device) .pt-hotspot .pt-btn:hover:after {
 }
 
 .arrow-location-center-02 .slick-arrow:before {
-    font-family: yanka;
+    font-family: cairo;
     font-size: 23px;
     line-height: 1;
     z-index: 2;
@@ -23142,7 +23162,7 @@ body:not(.touch-device) .pt-hotspot .pt-btn:hover:after {
 
 .mainSliderSlick .slick-arrow:after,
 .mainSliderSlick .slick-arrow:before {
-    font-family: yanka;
+    font-family: cairo;
     font-size: 23px;
     line-height: 1;
     display: block;
@@ -23537,7 +23557,7 @@ body:not(.touch-device) .pt-hotspot .pt-btn:hover:after {
 }
 
 .modal .close:before {
-    font-family: yanka;
+    font-family: cairo;
     font-size: 16px;
     line-height: 1;
     content: "\e909";
@@ -25073,7 +25093,7 @@ html.safari.mac.touch-device .pt-aside-subscribe-box .contact_form_newsletter .b
 }
 
 .pt-post .pt-post-content .pt-meta .pt-comments a .pt-icon:before {
-    font-family: yanka;
+    font-family: cairo;
     font-size: 23px;
     line-height: 1;
     content: "\e906"
@@ -25660,7 +25680,7 @@ html.safari.mac.touch-device .pt-aside-subscribe-box .contact_form_newsletter .b
 ._instafeed-default .instagram_gallery a:before,
 .instafeed-col:not([class^=instafeed-item-]) .instagram_gallery a:before,
 .instafeed-fluid .instagram_gallery a:before {
-    font-family: yanka;
+    font-family: cairo;
     font-size: 29px;
     line-height: 1;
     content: "\e907";
@@ -26328,7 +26348,7 @@ html.ie:not(.edge) .pt-items-categories>* {
 }
 
 .pt-pagination .btn-next:after {
-    font-family: yanka;
+    font-family: cairo;
     font-size: 23px;
     line-height: 1;
     content: "\e905";
@@ -26684,7 +26704,7 @@ textarea:focus:-ms-input-placeholder {
     padding: 13px 12px 12px 18px;
     box-shadow: none;
     outline: 0;
-    font-family: "Poppins", sans-serif;
+    font-family: "cairo", sans-serif;
     font-weight: 700;
     border-radius: 0;
     transition: all .2s;

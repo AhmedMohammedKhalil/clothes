@@ -127,6 +127,7 @@
     </div>
     @endif
 
+    @if($page_type != 'company')
     <div class="pt-collapse open">
         <h3 class="pt-collapse-title">
             الشركات
@@ -144,6 +145,7 @@
             </ul>
         </div>
     </div>
+    @endif
 
     <div class="pt-collapse open">
         <h3 class="pt-collapse-title">

@@ -2,42 +2,42 @@
 @push('css')
 <style>
 
-        .pt-filter-list, .pt-list-row{
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
+    .pt-filter-list, .pt-list-row{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
 
-        .pt-list-row li:first-child a {
-            padding-top: 6px;
-        }
+    .pt-list-row li:first-child a {
+        padding-top: 6px;
+    }
 
-        .pt-filter-list li, .pt-list-row li{
-            margin-top: 10px;
-            padding: 0 5px;
-            color: black;
-            border-radius: 20px
-        }
+    .pt-filter-list li, .pt-list-row li{
+        margin-top: 10px;
+        padding: 0 5px;
+        color: black;
+        border-radius: 20px
+    }
 
-        .pt-filter-list li a, .pt-list-row li a{
-            color: black !important
-        }
+    .pt-filter-list li a, .pt-list-row li a{
+        color: black !important
+    }
 
-        .pt-filter-list li:hover, .pt-list-row li:hover{
-            background-color: lightgray;
-        }
+    .pt-filter-list li:hover, .pt-list-row li:hover{
+        background-color: lightgray;
+    }
 
-        .pt-filter-list li:hover a, .pt-list-row li:hover a{
-            color: black;
-        }
+    .pt-filter-list li:hover a, .pt-list-row li:hover a{
+        color: black;
+    }
 
-        .pt-filter-list li .icon {
-            right: 10px !important;
-        }
+    .pt-filter-list li .icon {
+        right: 10px !important;
+    }
 
-        .pt-filter-list li:hover .icon {
-            color: red !important
-        }
+    .pt-filter-list li:hover .icon {
+        color: red !important
+    }
     .pt-product .pt-description .pt-title a {
         font-size: 18px;
         font-weight: bold !important;
@@ -86,8 +86,6 @@
 </div>
 @endsection
 @section('content')
-
-
         <div id="pt-pageContent">
             <div class="container-indent">
                 <div class="container container-fluid-custom-mobile-padding">

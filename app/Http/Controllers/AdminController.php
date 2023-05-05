@@ -39,7 +39,7 @@ class AdminController extends Controller
     }
 
     public function changePassword() {
-        return view('admins.changePassword',['page_name' => 'تغيير كلمة السر']);
+        return view('admins.changePassword',['page_name' => 'تغيير كلمة المرور']);
     }
 
     public function logout(Request $request) {

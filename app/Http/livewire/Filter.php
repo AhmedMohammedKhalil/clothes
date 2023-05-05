@@ -32,6 +32,10 @@ class Filter extends Component
             $this->filters['categories'][] = $this->content;
             $this->products = Category::where('name','like','%'.$this->content.'%')->first()->products;
         }
+        if($this->page_type == 'company') {
+            $this->filters['companies'][] = $this->content;
+            $this->products = Company::where('name','like','%'.$this->content.'%')->first()->products;
+        }
         if($this->page_type == 'gender') {
             $this->filters['genders'][] = $this->content;
             $this->products = Gender::where('name','like','%'.$this->content.'%')->first()->products;
@@ -52,8 +56,12 @@ class Filter extends Component
         if($this->page_type == 'category') {
             $cat = Category::where('name','like','%'.$this->content.'%')->first();
             $this->products = Product::whereIn('category_id',[$cat->id]);
-
         }
+        if($this->page_type == 'company') {
+            $comp = Company::where('name','like','%'.$this->content.'%')->first();
+            $this->products = Product::whereIn('company_id',[$comp->id]);
+        }
+
         if($this->page_type == 'gender') {
             $gen = Gender::where('name','like','%'.$this->content.'%')->first();
             $this->products = Product::whereIn('gender_id',[$gen->id]);

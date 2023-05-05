@@ -1,3 +1,5 @@
+
+
 @if($product->id != $p->id)
     <div class="col-6 col-md-4 pt-col-item">
         <div class="pt-product" style="background:white">
@@ -63,11 +65,7 @@
                             <span class="new-price">{{ $p->price }} دينار</span>
                         @endif
                     </div>
-                    {{-- <div style="margin-top:10px">
-                        @auth('user')
-                            @livewire('user.add-order', ['p_id' => $p->id], key('cart_'.$p->id))
-                        @endauth
-                    </div> --}}
+
                 </div>
             </div>
         </div>
@@ -97,7 +95,6 @@
                                         <button type="button" data-bs-target="#modalproduct{{ $p->id }}" data-bs-slide-to="1" aria-label="Slide 2"></button>
                                         <button type="button" data-bs-target="#modalproduct{{ $p->id }}" data-bs-slide-to="2" aria-label="Slide 3"></button>
                                     @endif
-
 
                                 </div>
                                 <div class="carousel-inner">
@@ -131,25 +128,52 @@
                         </div>
                         <div class="col-6">
                             <div class="pt-product-single-info">
-                                <h1 class="pt-title">{{ $p->name }}</h1>
-                                <div class="pt-price">
-                                    @if($p->offer != 0)
-                                        <span class="old-price" style="font-size: 36px;margin:20px 0">{{ $p->price }} دينار</span> <br>
-                                        <span class="new-price">{{ $p->offer }} دينار</span>
-                                    @else
-                                        <span class="new-price">{{ $p->price }} دينار</span>
-                                    @endif
+                                <div class="">
+                                    <table class="pt-table-shop-02">
+                                        <tbody>
+                                            <tr>
+                                                <td>إسم المنتج</td>
+                                                <td>{{ $p->name }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>الشركة</td>
+                                                <td>{{ $p->company->name }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>النوع</td>
+                                                <td>{{ $p->category->name }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>الخامة</td>
+                                                <td>{{ $p->material->name }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>المقاس</td>
+                                                <td>{{ $p->size->name }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>اللون</td>
+                                                <td>{{ $p->color }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>تفاصيل</td>
+                                                <td>{!! nl2br($p->details) !!}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>السعر</td>
+                                                <td>
+                                                    @if($p->offer != 0)
+                                                        <span class="old-price" style="padding-left: 10px;text-decoration: line-through 2px #305f9c;">{{ $p->price }} دينار</span>
+                                                        <span class="new-price">{{ $p->offer }} دينار</span>
+                                                    @else
+                                                        <span class="new-price">{{ $p->price }} دينار</span>
+                                                    @endif
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
-                                <div class="pt-add-info">
-                                    <ul>
-                                        <li>{{ $p->gender->name }}</li>
-                                        <li><span style="width: 100px;display:inline-block;color:black">الشركة </span>{{ $p->company->name }}</li>
-                                        <li><span style="width: 100px;display:inline-block;color:black">النوع </span>{{ $p->category->name }}</li>
-                                        <li><span style="width: 100px;display:inline-block;color:black">الخامة </span>{{ $p->material->name }}</li>
-                                        <li><span style="width: 100px;display:inline-block;color:black">المقاس </span>{{ $p->size->name }}</li>
-                                        <li><span style="width: 100px;display:inline-block;color:black">اللون </span>{{ $p->color }}</li>
-                                    </ul>
-                                </div>
+
                                 <div class="pt-col col-8" style="margin-top:10px">
                                     @auth('user')
                                         @livewire('user.add-order', ['p_id' => $p->id], key('cart_'.$p->id))
