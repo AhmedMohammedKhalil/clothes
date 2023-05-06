@@ -49,8 +49,6 @@
                                     {{ asset('images/products/'.$order->product->id.'/imgs/'.$image->id.'/'.$image->image_url) }}
                                 
                                 @endforeach
-                            @else
-                            {{ asset('images/products/categories/'.$order->product->category_name.'/cover-1.jpg') }}
                             @endif
                             " alt=""></a>
             </div>

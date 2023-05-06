@@ -44,13 +44,9 @@
                 <div class="pt-item-img col-2">
                     <a href="#"><img src="
                                 @if($order->product->images->count() > 0)
-                                    @foreach($order->product->images as $image)
-                                        @if($image->cover_name == 'cover_1')
-                                        {{ asset('images/products/'.$order->product->id.'/covers/cover-1/'.$image->image_url) }}
-                                        @endif
+                                    @foreach($order->product->images->take(1) as $image)
+                                        {{ asset('images/products/'.$order->product->id.'/imgs/'.$image->id.'/'.$image->image_url) }}
                                     @endforeach
-                                @else
-                                {{ asset('images/products/categories/'.$order->product->category_name.'/cover-1.jpg') }}
                                 @endif
                                 " alt=""></a>
                 </div>
