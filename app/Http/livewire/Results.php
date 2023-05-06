@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 
 class Results extends Component
 {
-    public $products,$flag,$prod,$page_type,$content,$prods;
+    public $products,$flag,$prod,$page_type,$content,$prods = [];
 
 
     public function mount($page_type,$content) {
